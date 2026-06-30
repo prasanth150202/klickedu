@@ -1,0 +1,1685 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KLickEdu | Premium Educational Guidance</title>
+    <link rel="icon" type="image/png" href="assets/logo2.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>    
+        tailwind.config = {
+            theme: {
+                extend: {
+
+                    fontFamily: { sans: ['"Poppins"', 'sans-serif'] },
+                    colors: {
+                        brandDark: '#0F172A',
+                        brandPrimary: '#E558A0',
+                        brandSecondary: '#DE247C',
+                        surface: '#F8FAFC',
+                    },
+                    boxShadow: {
+                        'premium': '0 10px 40px -10px rgba(0,0,0,0.05)',
+                        'premium-hover': '0 20px 40px -10px rgba(139, 51, 232, 0.12)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .bg-pastel-gradient {
+            background: linear-gradient(135deg, #d4e6fc 0%, #e2d4fb 50%, #fbd5e4 100%);
+            position: relative;
+        }
+
+        .bg-pastel-gradient::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)" opacity="0.08"/%3E%3C/svg%3E');
+            pointer-events: none;
+            mix-blend-mode: overlay;
+        }
+
+        .glass-panel-light {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+        }
+
+        .enterprise-card {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            background: #ffffff;
+        }
+
+        .enterprise-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(139, 51, 232, 0.3);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.08);
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #F8FAFC;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #CBD5E1;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #E558A0;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Hide scrollbar completely to enforce slider look */
+        #cardSlider::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* ── Global: tighter section spacing ── */
+        section {
+            padding-top: 3rem !important;
+            padding-bottom: 3rem !important;
+        }
+
+        /* ── Mobile: even tighter + slightly smaller base font ── */
+        @media (max-width: 1023px) {
+            section {
+                padding-top: 2rem !important;
+                padding-bottom: 2rem !important;
+            }
+            body {
+                font-size: 0.875rem;
+            }
+            h1 { font-size: 1.75rem !important; }
+            h2 { font-size: 1.375rem !important; }
+            h3 { font-size: 1.1rem  !important; }
+        }
+    </style>
+</head>
+
+<body
+    class="font-sans text-gray-700 bg-white antialiased overflow-x-hidden selection:bg-brandPrimary selection:text-white">
+
+    <nav class="fixed w-full z-50 transition-all duration-500 border-b border-transparent max-lg:bg-white/75 max-lg:backdrop-blur-md max-lg:border-gray-100/60 max-lg:shadow-sm" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20 sm:h-24">
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer">
+                    <img class="h-10 sm:h-12" src="assets/logo1.png" alt="KLickEdu logo">
+                </div>
+                <div class="flex items-center gap-2 sm:gap-4">
+                    <a href="#contact"
+                        class="bg-brandDark text-white px-4 py-2 sm:px-6 sm:py-2.5 rounded-md text-xs sm:text-sm font-semibold hover:bg-gray-800 transition-all shadow-premium hover:-translate-y-0.5">Free Registration</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <section id="home"
+        class="relative  min-h-[90vh] md:min-h-screen flex items-center justify-center pt-28 pb-20 overflow-hidden bg-pastel-gradient mb-6 md:mb-0 rounded-b-[2.5rem] md:rounded-none">
+
+        <video autoplay muted loop playsinline
+            class="lg:hidden absolute inset-0 w-full h-full object-cover z-0">
+            <source
+                src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAEx0srJq-_7mok0fNOsNTEL7-dFPgyMj7_QVRvFF-vYrVVSKXIgnTuxzNTdr0TFH_PwiEbOlTEm-MMuhIpPB4lFWcGMOM0HBNZFid7fvxnnDF3zPaS_H8xUZ2WOTvM4xG39_Jz0mZKsL6ix=m18"
+                type="video/mp4">
+        </video>
+        <div class="lg:hidden absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/70 z-0 pointer-events-none"></div>
+
+        <div class="lg:hidden absolute bottom-36 inset-x-0 z-30 px-6 flex justify-center">
+            <a href="#contact"
+                class="animate-bounce inline-flex items-center justify-center gap-2 bg-brandPrimary text-white px-8 py-5 rounded-full font-bold text-lg shadow-2xl shadow-purple-900/40 w-full max-w-xs">
+                Free Registration <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <div class="hidden lg:block relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="grid mt-20 lg:grid-cols-12 gap-10 xl:gap-16 items-center">
+
+                <div class="lg:col-span-7 gs-reveal">
+                    <div
+                        class="inline-flex items-center gap-3 px-4 py-2 rounded-full glass-panel-light text-brandDark text-xs font-bold mb-6 sm:mb-8 uppercase tracking-wider shadow-sm border border-brandPrimary/20">
+                        <span class="w-2.5 h-2.5 rounded-full bg-brandSecondary animate-pulse"></span> Free Entry For
+                        All
+                    </div>
+
+                    <h1
+                        class="text-4xl sm:text-5xl xl:text-6xl font-extrabold text-brandDark mb-4 sm:mb-6 leading-[1.15] tracking-tight">
+                        Tamil Nadu's <br />
+                        Leading <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-brandPrimary to-brandSecondary leading-normal pb-2">MBBS
+                            Expo</span>
+                    </h1>
+
+                    <p class="text-sm sm:text-base xl:text-lg text-gray-700 mb-8 sm:mb-10 leading-relaxed font-medium">
+                        Don't make life-changing academic decisions blindly. Join our statewide expo series to
+                        transparently compare options and build your roadmap to medical school.
+                    </p>
+
+                    <div class="space-y-4 sm:space-y-5 mb-8 sm:mb-10">
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center text-brandPrimary text-sm flex-shrink-0">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                            </div>
+                            <p class="text-sm xl:text-base text-gray-700 font-semibold">Compare fees, scholarships &
+                                hostels.</p>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center text-brandPrimary text-sm flex-shrink-0">
+                                <i class="fa-solid fa-handshake"></i>
+                            </div>
+                            <p class="text-sm xl:text-base text-gray-700 font-semibold">Meet official university
+                                delegates.</p>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center text-brandPrimary text-sm flex-shrink-0">
+                                <i class="fa-solid fa-file-invoice-dollar"></i>
+                            </div>
+                            <p class="text-sm xl:text-base text-gray-700 font-semibold">Get education loan assistance.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#contact"
+                            class="bg-brandDark text-white px-6 py-3.5 rounded-md font-semibold text-center hover:bg-gray-800 transition-all shadow-lg shadow-gray-900/20 flex items-center justify-center gap-2 group w-full sm:w-auto">
+                            Free Registration <i
+                                class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5 relative hidden lg:block gs-reveal py-12">
+                    <div
+                        class="relative rounded-2xl overflow-hidden border border-white shadow-2xl z-20 bg-white w-full">
+                        <video autoplay muted loop playsinline
+                            class="w-full h-[400px] xl:h-[550px] object-cover opacity-90">
+                            <source
+                                src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAEx0srJq-_7mok0fNOsNTEL7-dFPgyMj7_QVRvFF-vYrVVSKXIgnTuxzNTdr0TFH_PwiEbOlTEm-MMuhIpPB4lFWcGMOM0HBNZFid7fvxnnDF3zPaS_H8xUZ2WOTvM4xG39_Jz0mZKsL6ix=m18"
+                                type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+
+                    <div class="absolute top-24 -left-10 glass-panel-light p-4 xl:p-5 rounded-xl z-30 flex items-center gap-4 animate-bounce shadow-lg"
+                        style="animation-duration: 4s;">
+                        <div
+                            class="w-10 h-10 xl:w-12 xl:h-12 rounded-lg bg-emerald-100 flex items-center justify-center text-emerald-600 text-lg xl:text-xl border border-emerald-200">
+                            <i class="fa-solid fa-calculator"></i>
+                        </div>
+                        <div>
+                            <p class="text-brandDark font-bold text-xs xl:text-sm">Transparent Costing</p>
+                            <p class="text-gray-600 text-[10px] xl:text-xs font-medium">No hidden operational fees</p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="absolute bottom-28 -right-6 glass-panel-light p-4 xl:p-5 rounded-xl z-30 shadow-premium">
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="w-10 h-10 xl:w-12 xl:h-12 rounded-lg bg-purple-100 flex items-center justify-center text-brandPrimary border border-purple-200">
+                                <i class="fa-solid fa-compass"></i>
+                            </div>
+                            <div>
+                                <p class="text-brandDark font-bold text-xs xl:text-sm">End-to-End Counseling</p>
+                                <p class="text-gray-600 text-[10px] xl:text-xs font-medium">From eligibility to
+                                    enrollment</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="absolute bottom-0 w-full h-32 bg-gradient-to-t from-white to-transparent z-20"></div>
+    </section>
+
+
+
+<section id="schedule" class="py-10 lg:py-12 bg-surface border-t border-gray-100 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+        <div class="flex flex-col lg:flex-row gap-8 lg:gap-12 items-stretch justify-center gs-reveal">
+
+            <div class="w-full lg:flex-1 order-1 flex flex-col">
+                
+                <div class="mb-8 lg:mb-10 text-center lg:text-left gs-reveal mx-auto lg:mx-0 w-full">
+                    <h2 class="text-sm font-bold text-brandPrimary tracking-widest uppercase mb-2 text-[#E558A0]">2026 Itinerary</h2>
+                    <h3 class="text-3xl md:text-4xl font-bold text-brandDark tracking-tight text-gray-900">Catch the Expo in your city.</h3>
+                    <p class="text-gray-600 mt-3 font-medium max-w-xl mx-auto lg:mx-0 text-sm md:text-base">
+                        We are traveling across Tamil Nadu to bring expert medical guidance directly to you. Select a location on the map to view details.
+                    </p>
+                </div>
+
+                <div class="w-full mt-auto relative" id="mapWrapper">
+                    <div class="relative w-full max-w-[380px] mx-auto aspect-square bg-slate-50/50 rounded-2xl border border-gray-100 shadow-inner overflow-hidden" id="mapContainer">
+
+                        <div class="absolute inset-0 pointer-events-none select-none">
+                            <img src="assets/tamilnaduremovebg.png" alt="Map of Tamil Nadu" class="w-full h-full object-contain opacity-80" />
+                        </div>
+
+                        <!-- Fixed info card – top-left of map -->
+                        <div id="mapInfoCard" class="absolute top-3 left-3 z-20 bg-white/90 backdrop-blur-sm rounded-xl border border-gray-100 shadow-lg px-3 py-2.5 pointer-events-none min-w-[100px]">
+                            <p id="infoCity" class="text-xs font-extrabold text-brandDark leading-tight"></p>
+                            <p id="infoDate" class="text-[11px] font-bold text-brandPrimary leading-tight mt-0.5"></p>
+                            <p id="infoVenue" class="text-[10px] text-black font-medium leading-tight mt-0.5"></p>
+                        </div>
+
+                        <button class="city-pin group absolute top-[17%] left-[75%] flex flex-col items-center gap-1 focus:outline-none" data-id="chennai">
+                            <div class="relative flex h-5 w-5 items-center justify-center">
+                                <span class="absolute inline-flex h-full w-full rounded-full bg-[#E558A0] opacity-75 group-hover:animate-ping transition-all duration-300"></span>
+                                <span class="pin-dot relative inline-flex rounded-full h-3 w-3 bg-gray-400 group-hover:bg-[#E558A0] transition-colors"></span>
+                            </div>
+                            <span class="pin-label text-xs font-bold text-black group-hover:text-[#E558A0] transition-colors">Chennai</span>
+                        </button>
+
+                        <button class="city-pin group absolute top-[43%] left-[72%] flex flex-col items-center gap-1 focus:outline-none" data-id="pondicherry">
+                            <div class="relative flex h-5 w-5 items-center justify-center">
+                                <span class="absolute inline-flex h-full w-full rounded-full bg-[#E558A0] opacity-0 group-hover:opacity-75 group-hover:animate-ping transition-all duration-300"></span>
+                                <span class="pin-dot relative inline-flex rounded-full h-3 w-3 bg-gray-400 group-hover:bg-[#E558A0] transition-colors"></span>
+                            </div>
+                            <span class="pin-label text-xs font-bold text-black group-hover:text-[#E558A0] transition-colors">Pondicherry</span>
+                        </button>
+
+                        <button class="city-pin active-pin group absolute top-[36%] left-[47%] flex flex-col items-center gap-1 focus:outline-none" data-id="salem">
+                            <div class="relative flex h-5 w-5 items-center justify-center">
+                                <span class="absolute inline-flex h-full w-full rounded-full bg-[#E558A0] opacity-75 animate-ping"></span>
+                                <span class="pin-dot relative inline-flex rounded-full h-4 w-4 bg-[#E558A0] border-2 border-white shadow-md transition-colors"></span>
+                            </div>
+                            <span class="pin-label text-xs font-bold text-[#E558A0] transition-colors">Salem</span>
+                        </button>
+
+                        <button class="city-pin group absolute top-[39%] left-[31%] flex flex-col items-center gap-1 focus:outline-none" data-id="erode">
+                            <div class="relative flex h-5 w-5 items-center justify-center">
+                                <span class="absolute inline-flex h-full w-full rounded-full bg-[#E558A0] opacity-0 group-hover:opacity-75 group-hover:animate-ping transition-all duration-300"></span>
+                                <span class="pin-dot relative inline-flex rounded-full h-3 w-3 bg-gray-400 group-hover:bg-[#E558A0] transition-colors"></span>
+                            </div>
+                            <span class="pin-label text-xs font-bold text-black group-hover:text-[#E558A0] transition-colors">Erode</span>
+                        </button>
+
+                        <button class="city-pin group absolute top-[49%] left-[25%] flex flex-col items-center gap-1 focus:outline-none" data-id="coimbatore">
+                            <div class="relative flex h-5 w-5 items-center justify-center">
+                                <span class="absolute inline-flex h-full w-full rounded-full bg-[#E558A0] opacity-0 group-hover:opacity-75 group-hover:animate-ping transition-all duration-300"></span>
+                                <span class="pin-dot relative inline-flex rounded-full h-3 w-3 bg-gray-400 group-hover:bg-[#E558A0] transition-colors"></span>
+                            </div>
+                            <span class="pin-label text-xs font-bold text-black group-hover:text-[#E558A0] transition-colors">Coimbatore</span>
+                        </button>
+
+                        <button class="city-pin group absolute top-[50%] left-[55%] flex flex-col items-center gap-1 focus:outline-none" data-id="trichy">
+                            <div class="relative flex h-5 w-5 items-center justify-center">
+                                <span class="absolute inline-flex h-full w-full rounded-full bg-[#E558A0] opacity-0 group-hover:opacity-75 group-hover:animate-ping transition-all duration-300"></span>
+                                <span class="pin-dot relative inline-flex rounded-full h-3 w-3 bg-gray-400 group-hover:bg-[#E558A0] transition-colors"></span>
+                            </div>
+                            <span class="pin-label text-xs font-bold text-black group-hover:text-[#E558A0] transition-colors">Trichy</span>
+                        </button>
+
+                        <button class="city-pin group absolute top-[65%] left-[42%] flex flex-col items-center gap-1 focus:outline-none" data-id="madurai">
+                            <div class="relative flex h-5 w-5 items-center justify-center">
+                                <span class="absolute inline-flex h-full w-full rounded-full bg-[#E558A0] opacity-0 group-hover:opacity-75 group-hover:animate-ping transition-all duration-300"></span>
+                                <span class="pin-dot relative inline-flex rounded-full h-3 w-3 bg-gray-400 group-hover:bg-[#E558A0] transition-colors"></span>
+                            </div>
+                            <span class="pin-label text-xs font-bold text-black group-hover:text-[#E558A0] transition-colors">Madurai</span>
+                        </button>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="w-full lg:flex-1 order-2 flex flex-col lg:pt-8">
+                <div class="relative w-full max-w-[290px] mx-auto flex-1 min-h-[376px] bg-gray-900 rounded-2xl overflow-hidden shadow-2xl ring-1 ring-black/5 group">
+                    <video id="mainVideo" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-500"
+                        autoplay muted loop playsinline>
+                        <source id="videoSource" src="assets/salem.mp4" type="video/mp4">
+                    </video>
+
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent pointer-events-none">
+                    </div>
+
+                    <button id="muteToggle"
+                        class="absolute top-4 right-4 z-20 w-10 h-10 flex items-center justify-center bg-black/40 hover:bg-black/60 text-white rounded-full backdrop-blur-sm transition-all focus:outline-none"
+                        aria-label="Toggle Audio">
+                        <svg id="iconMuted" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke-width="1.5" stroke="currentColor" class="w-5 h-5 block">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M17.25 9.75 19.5 12m0 0 2.25 2.25M19.5 12l2.25-2.25M19.5 12l-2.25 2.25m-10.5-6 4.72-4.72a.75.75 0 0 1 1.28.53v15.88a.75.75 0 0 1-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.009 9.009 0 0 1 2.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75Z" />
+                        </svg>
+                        <svg id="iconUnmuted" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke-width="1.5" stroke="currentColor" class="w-5 h-5 hidden">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M19.114 5.636a9 9 0 0 1 0 12.728M16.463 8.288a5.25 5.25 0 0 1 0 7.424M6.75 8.25l4.72-4.72a.75.75 0 0 1 1.28.53v15.88a.75.75 0 0 1-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.009 9.009 0 0 1 2.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75Z" />
+                        </svg>
+                    </button>
+
+                    <div class="absolute bottom-6 left-6 right-6 text-white flex flex-col gap-2 transition-opacity duration-300">
+                        <div class="flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                class="w-6 h-6 text-red-500 animate-bounce">
+                                <path fill-rule="evenodd"
+                                    d="m11.54 22.351.07.04.028.016a.76.76 0 0 0 .723 0l.028-.015.071-.041a16.975 16.975 0 0 0 1.144-.742 19.58 19.58 0 0 0 2.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 0 0-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 0 0 2.682 2.282 16.975 16.975 0 0 0 1.145.742ZM12 13.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <h4 id="displayCity"
+                                class="text-3xl md:text-4xl font-bold tracking-wide drop-shadow-md">Salem</h4>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mt-2">
+                            <div class="bg-white/20 backdrop-blur-md px-3 py-2 rounded-lg border border-white/10 flex-1">
+                                <span class="text-gray-300 text-[10px] uppercase font-bold tracking-wider block">Date</span>
+                                <span id="displayDate" class="font-medium text-sm">Jun 27, 2026</span>
+                            </div>
+                            <div class="bg-white/20 backdrop-blur-md px-3 py-2 rounded-lg border border-white/10 flex-1">
+                                <span class="text-gray-300 text-[10px] uppercase font-bold tracking-wider block">Venue</span>
+                                <span id="displayVenue" class="font-medium text-sm">Radisson</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="text-center flex justify-center mt-10 relative z-20">
+            <a href="#contact"
+                class="inline-flex items-center justify-center px-10 py-3.5 text-sm font-bold text-white bg-[#E558A0] hover:bg-[#c44a8f] rounded-full shadow-lg hover:shadow-xl transition-all w-full sm:w-auto focus:ring-4 focus:ring-[#E558A0]/30">
+                Free Registration
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const locationsData = {
+            salem:       { name: 'Salem',      date: 'Jun 27, 2026', venue: 'Radisson',     video: 'assets/salem.mp4' },
+            chennai:     { name: 'Chennai',    date: 'Jun 28, 2026', venue: 'Park Inn',     video: 'assets/chennai.mp4' },
+            erode:       { name: 'Erode',      date: 'Jun 26, 2026', venue: 'Turmeric Hotel',             video: 'assets/Erode.webm' },
+            coimbatore:  { name: 'Coimbatore', date: 'Jul 05, 2026', venue: 'Zone by Park', video: 'assets/coimbatore.mp4' },
+            trichy:      { name: 'Trichy',     date: 'Jul 03, 2026', venue: 'SRM',          video: 'assets/trichy.mp4' },
+            madurai:     { name: 'Madurai',    date: 'Jul 04, 2026', venue: 'Pandian',       video: 'assets/madurai.mp4' },
+            pondicherry: { name: 'Pondicherry', date: 'Jun 29, 2026', venue: 'Accord',        video: 'assets/Podicherry.webm' }
+        };
+
+        const cityOrder = ['salem', 'chennai', 'pondicherry', 'erode', 'coimbatore', 'trichy', 'madurai'];
+        let currentIndex = 0;
+        let autoTimer = null;
+
+        const pins = document.querySelectorAll('.city-pin');
+        const mainVideo = document.getElementById('mainVideo');
+        const videoSource = document.getElementById('videoSource');
+        const displayCity = document.getElementById('displayCity');
+        const displayDate = document.getElementById('displayDate');
+        const displayVenue = document.getElementById('displayVenue');
+        const overlay = displayCity.closest('.absolute.bottom-6');
+
+        function activateCity(cityId) {
+            const data = locationsData[cityId];
+            if (!data) return;
+
+            // Reset all pins
+            pins.forEach(p => {
+                p.classList.remove('active-pin');
+                const ping = p.querySelector('.absolute.inline-flex.rounded-full');
+                const dot = p.querySelector('.pin-dot');
+                const label = p.querySelector('.pin-label');
+                if (ping) { ping.classList.remove('opacity-75', 'animate-ping'); ping.classList.add('opacity-0'); }
+                dot.classList.remove('bg-[#E558A0]', 'h-4', 'w-4', 'border-2', 'border-white', 'shadow-md');
+                dot.classList.add('bg-gray-400', 'h-3', 'w-3');
+                label.classList.remove('text-[#E558A0]');
+                label.classList.add('text-black');
+            });
+
+            // Activate target pin
+            const activePin = document.querySelector(`.city-pin[data-id="${cityId}"]`);
+            if (activePin) {
+                activePin.classList.add('active-pin');
+                const ping = activePin.querySelector('.absolute.inline-flex.rounded-full');
+                const dot = activePin.querySelector('.pin-dot');
+                const label = activePin.querySelector('.pin-label');
+                if (ping) { ping.classList.remove('opacity-0'); ping.classList.add('opacity-75', 'animate-ping'); }
+                dot.classList.remove('bg-gray-400', 'h-3', 'w-3');
+                dot.classList.add('bg-[#E558A0]', 'h-4', 'w-4', 'border-2', 'border-white', 'shadow-md');
+                label.classList.remove('text-black');
+                label.classList.add('text-[#E558A0]');
+            }
+
+            // Fade overlay → update → fade in
+            overlay.classList.add('opacity-0');
+            setTimeout(() => {
+                displayCity.textContent = data.name;
+                displayDate.textContent = data.date;
+                displayVenue.textContent = data.venue;
+                mainVideo.pause();
+                videoSource.setAttribute('src', data.video);
+                const ext = data.video.split('.').pop().toLowerCase();
+                videoSource.setAttribute('type', ext === 'webm' ? 'video/webm' : 'video/mp4');
+                mainVideo.load();
+                mainVideo.play();
+                overlay.classList.remove('opacity-0');
+
+                // Update fixed info card in the top-left of the map
+                document.getElementById('infoCity').textContent  = data.name;
+                document.getElementById('infoDate').textContent  = data.date;
+                document.getElementById('infoVenue').textContent = data.venue;
+            }, 250);
+        }
+
+        function startAutoPlay() {
+            clearInterval(autoTimer);
+            autoTimer = setInterval(() => {
+                currentIndex = (currentIndex + 1) % cityOrder.length;
+                activateCity(cityOrder[currentIndex]);
+            }, 5000);
+        }
+
+        // When video ends after a manual click, resume auto-cycling from the next city
+        mainVideo.addEventListener('ended', () => {
+            if (!autoTimer) {
+                currentIndex = (currentIndex + 1) % cityOrder.length;
+                activateCity(cityOrder[currentIndex]);
+                startAutoPlay();
+            }
+        });
+
+        // Manual pin click – play full video, pause auto-cycle until video ends
+        pins.forEach(pin => {
+            pin.addEventListener('click', () => {
+                const cityId = pin.getAttribute('data-id');
+                currentIndex = cityOrder.indexOf(cityId);
+                activateCity(cityId);
+                clearInterval(autoTimer);
+                autoTimer = null;
+            });
+        });
+
+        // Audio toggle
+        const muteToggle = document.getElementById('muteToggle');
+        const iconMuted = document.getElementById('iconMuted');
+        const iconUnmuted = document.getElementById('iconUnmuted');
+        muteToggle.addEventListener('click', () => {
+            mainVideo.muted = !mainVideo.muted;
+            iconMuted.classList.toggle('hidden', !mainVideo.muted);
+            iconUnmuted.classList.toggle('hidden', mainVideo.muted);
+        });
+
+        // Kick off auto-play
+        startAutoPlay();
+    });
+</script>
+
+
+    <section id="cities" class="py-20 md:py-28 bg-surface border-t border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-extrabold text-brandDark mb-4">MBBS Expo Coming Near You</h2>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">Meet our experts in your city and get clear guidance before choosing your MBBS path.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="group card-hover bg-white rounded-2xl p-8 border border-gray-100 shadow-sm">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 text-xl font-bold">1</div>
+                    <div>
+                        <h3 class="text-xl font-bold text-brandDark">Chennai</h3>
+                        <p class="text-sm text-orange-600 font-semibold">Jun 28, 2026</p>
+                    </div>
+                </div>
+                <div class="space-y-3 text-sm text-gray-600 mb-6">
+                    <p><strong>Venue:</strong> Park Inn</p>
+                    <p><strong>Time:</strong> 09:00 AM – 06:00 PM</p>
+                </div>
+                <button type="button" class="expo-reg-btn mt-5 inline-flex items-center gap-2 text-sm font-bold bg-brandPrimary text-white hover:bg-brandSecondary rounded-full px-5 py-2.5 transition-colors shadow-sm">
+                    Register Free <i class="fa-solid fa-arrow-right text-[14px]"></i>
+                </button>
+            </div>
+ <div class="group card-hover bg-white rounded-2xl p-8 border border-gray-100 shadow-sm">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 text-xl font-bold">2</div>
+                    <div>
+                        <h3 class="text-xl font-bold text-brandDark">Pondicherry</h3>
+                        <p class="text-sm text-indigo-600 font-semibold">Jun 29, 2026</p>
+                    </div>
+                </div>
+                <div class="space-y-3 text-sm text-gray-600 mb-6">
+                    <p><strong>Venue:</strong> Accord Hotel</p>
+                    <p><strong>Time:</strong> 09:00 AM – 06:00 PM</p>
+                </div>
+                <button type="button" class="expo-reg-btn mt-5 inline-flex items-center gap-2 text-sm font-bold bg-brandPrimary text-white hover:bg-brandSecondary rounded-full px-5 py-2.5 transition-colors shadow-sm">
+                    Notify Me <i class="fa-solid fa-arrow-right text-[14px]"></i>
+                </button>
+            </div>
+            
+            <!-- Madurai Card -->
+            <div class="group card-hover bg-white rounded-2xl p-8 border border-gray-100 shadow-sm">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 text-xl font-bold">3</div>
+                    <div>
+                        <h3 class="text-xl font-bold text-brandDark">Madurai</h3>
+                        <p class="text-sm text-emerald-600 font-semibold">Jul 04, 2026</p>
+                    </div>
+                </div>
+                <div class="space-y-3 text-sm text-gray-600 mb-6">
+                    <p><strong>Venue:</strong> Pandian Hotel</p>
+                    <p><strong>Time:</strong> 09:00 AM – 06:00 PM</p>
+                </div>
+                <button type="button" class="expo-reg-btn mt-5 inline-flex items-center gap-2 text-sm font-bold bg-brandPrimary text-white hover:bg-brandSecondary rounded-full px-5 py-2.5 transition-colors shadow-sm">
+                    Register Free <i class="fa-solid fa-arrow-right text-[14px]"></i>
+                </button>
+            </div>
+
+            <!-- Chennai Card -->
+            
+            <!-- Trichy Card -->
+            <div class="group card-hover bg-white rounded-2xl p-8 border border-gray-100 shadow-sm">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 text-xl font-bold">4</div>
+                    <div>
+                        <h3 class="text-xl font-bold text-brandDark">Trichy</h3>
+                        <p class="text-sm text-blue-600 font-semibold">Jul 03, 2026</p>
+                    </div>
+                </div>
+                <div class="space-y-3 text-sm text-gray-600 mb-6">
+                    <p><strong>Venue:</strong> SRM Hotel</p>
+                    <p><strong>Time:</strong> 09:00 AM – 06:00 PM</p>
+                </div>
+                <button type="button" class="expo-reg-btn mt-5 inline-flex items-center gap-2 text-sm font-bold bg-brandPrimary text-white hover:bg-brandSecondary rounded-full px-5 py-2.5 transition-colors shadow-sm">
+                    Register Free <i class="fa-solid fa-arrow-right text-[14px]"></i>
+                </button>
+            </div>
+
+            <!-- Coimbatore Card -->
+            <div class="group card-hover bg-white rounded-2xl p-8 border border-gray-100 shadow-sm">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 rounded-full bg-pink-100 flex items-center justify-center text-pink-600 text-xl font-bold">5</div>
+                    <div>
+                        <h3 class="text-xl font-bold text-brandDark">Coimbatore</h3>
+                        <p class="text-sm text-pink-600 font-semibold">Jul 05, 2026</p>
+                    </div>
+                </div>
+                <div class="space-y-3 text-sm text-gray-600 mb-6">
+                    <p><strong>Venue:</strong> Zone by Park</p>
+                    <p><strong>Time:</strong> 09:00 AM – 06:00 PM</p>
+                </div>
+                <button type="button" class="expo-reg-btn mt-5 inline-flex items-center gap-2 text-sm font-bold bg-brandPrimary text-white hover:bg-brandSecondary rounded-full px-5 py-2.5 transition-colors shadow-sm">
+                    Notify Me <i class="fa-solid fa-arrow-right text-[14px]"></i>
+                </button>
+            </div>
+
+            <!-- Pondicherry Card -->
+           
+        </div>
+    </div>
+</section>
+
+    <section id="benchmarks" class="py-20 md:py-24 bg-surface relative border-t border-gray-100 overflow-hidden">
+        <div class="absolute top-0 right-0 w-full h-full overflow-hidden z-0 pointer-events-none">
+            <div
+                class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-b from-brandPrimary/5 to-transparent skew-x-12 translate-x-20">
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+
+                <div class="lg:col-span-5 gs-reveal">
+                    <span
+                        class="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-brandPrimary/10 text-brandPrimary text-xs font-bold tracking-widest uppercase mb-6 border border-brandPrimary/20">
+                        <i class="fa-solid fa-chart-line"></i> By The Numbers
+                    </span>
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-brandDark tracking-tight mb-6 leading-tight">
+                        We don't just promise, we <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-brandPrimary to-brandSecondary">deliver.</span>
+                    </h2>
+                    <p class="text-gray-600 font-medium text-lg mb-8 leading-relaxed">
+                        Numbers speak louder than words. For over a decade, Klick Edu has been the definitive bridge
+                        between aspiring medical students and world-class educational institutions.
+                    </p>
+
+                    <div class="pl-5 border-l-4 border-brandSecondary py-2 relative">
+                        <div class="absolute -left-2 top-0 text-brandSecondary/20 text-4xl font-serif leading-none">"
+                        </div>
+                        <p class="text-sm text-black font-semibold italic relative z-10 leading-relaxed">
+                            The most transparent and effective medical admission summit operating across South India.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 relative" id="stats-container">
+                    <div
+                        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] bg-gradient-to-tr from-brandPrimary/10 to-brandSecondary/10 blur-[80px] rounded-full pointer-events-none z-0">
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 relative z-10">
+
+                        <div
+                            class="bg-white p-8 rounded-[2rem] shadow-xl shadow-gray-200/50 border border-white gs-reveal hover:-translate-y-1 transition-transform duration-300">
+                            <div
+                                class="w-14 h-14 bg-purple-50 rounded-2xl flex items-center justify-center text-brandPrimary mb-8 shadow-sm">
+                                <i class="fa-solid fa-building-columns text-xl"></i>
+                            </div>
+                            <div class="flex items-end gap-1 mb-2">
+                                <h4 class="text-6xl font-black text-brandDark counter tracking-tighter"
+                                    data-target="1000">0</h4>
+                                <span class="text-3xl font-bold text-brandPrimary pb-1">+</span>
+                            </div>
+                            <h5 class="text-base font-bold text-brandDark mb-2">Global Universities</h5>
+                            <p class="text-sm text-black leading-relaxed font-medium">Authorized delegates from
+                                top-tier institutions worldwide.</p>
+                        </div>
+
+                        <div
+                            class="bg-white p-8 rounded-[2rem] shadow-xl shadow-gray-200/50 border border-white gs-reveal sm:mt-12 hover:-translate-y-1 transition-transform duration-300">
+                            <div
+                                class="w-14 h-14 bg-pink-50 rounded-2xl flex items-center justify-center text-brandSecondary mb-8 shadow-sm">
+                                <i class="fa-solid fa-globe text-xl"></i>
+                            </div>
+                            <div class="flex items-end gap-1 mb-2">
+                                <h4 class="text-6xl font-black text-brandDark counter tracking-tighter"
+                                    data-target="50">0</h4>
+                                <span class="text-3xl font-bold text-brandSecondary pb-1">+</span>
+                            </div>
+                            <h5 class="text-base font-bold text-brandDark mb-2">Countries Represented</h5>
+                            <p class="text-sm text-black leading-relaxed font-medium">Spanning across Europe, Asia,
+                                and the Americas.</p>
+                        </div>
+
+                        <div
+                            class="sm:col-span-2 bg-brandDark p-8 md:p-10 rounded-[2rem] shadow-2xl shadow-brandDark/20 relative overflow-hidden gs-reveal group">
+                            <div
+                                class="absolute -right-20 -bottom-20 w-64 h-64 bg-emerald-500/20 blur-3xl rounded-full transition-transform duration-700 group-hover:scale-150">
+                            </div>
+
+                            <div
+                                class="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+                                <div class="flex-1">
+                                    <div
+                                        class="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center text-emerald-400 mb-6 backdrop-blur-md border border-white/10">
+                                        <i class="fa-solid fa-award text-2xl"></i>
+                                    </div>
+                                    <h5 class="text-xl md:text-2xl font-bold text-white mb-3">Admission Success Rate
+                                    </h5>
+                                    <p class="text-sm text-gray-400 max-w-sm leading-relaxed font-medium">
+                                        Direct, on-the-spot profile assessments leading to verified, provisional
+                                        admission letters in a single day.
+                                    </p>
+                                </div>
+                                <div
+                                    class="flex items-end gap-1 border-t md:border-t-0 md:border-l border-white/10 pt-6 md:pt-0 md:pl-8 mt-4 md:mt-0 w-full md:w-auto">
+                                    <h4 class="text-7xl md:text-8xl font-black text-white counter tracking-tighter drop-shadow-md"
+                                        data-target="95">0</h4>
+                                    <span
+                                        class="text-4xl md:text-5xl font-bold text-emerald-400 mb-2 md:mb-3 drop-shadow-md">%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+<section id="expo-benefits" class="py-20 md:py-28 relative overflow-hidden bg-gray-50">
+    <div class="absolute inset-0 z-0 pointer-events-none opacity-40">
+        <div class="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-gray-200 via-transparent to-transparent"></div>
+        <div class="absolute top-0 left-2/4 w-px h-full bg-gradient-to-b from-gray-200 via-transparent to-transparent"></div>
+        <div class="absolute top-0 left-3/4 w-px h-full bg-gradient-to-b from-gray-200 via-transparent to-transparent"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="border-b border-gray-200 pb-10 mb-16 flex flex-col md:flex-row md:items-end md:justify-between gap-6 gs-reveal">
+            <div class="max-w-2xl">
+                <span class="text-xs font-bold text-brandSecondary tracking-widest uppercase block mb-3">Why Attend?</span>
+                <h3 class="text-3xl md:text-5xl font-black text-brandDark tracking-tight">
+                    Unlock Your Medical Career
+                </h3>
+            </div>
+            <div class="max-w-md">
+                <p class="text-gray-600 text-base md:text-lg leading-relaxed">
+                    Stop guessing about your future. Get direct access to university delegates, clear your doubts,
+                    and map out your entire MBBS journey in a single day.
+                </p>
+            </div>
+        </div>
+
+        <div class="relative">
+
+            <div class="hidden lg:block absolute top-[72px] left-[12.5%] right-[12.5%] h-0.5 z-0"
+                style="background: linear-gradient(to right, #E558A0, #DE247C, #10b981, #3b82f6);">
+            </div>
+
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-6 relative z-10">
+
+                <div class="flex flex-col items-center text-center group gs-reveal">
+                    <div class="relative mb-5">
+                        <div class="w-36 h-36 rounded-full bg-white border-4 border-purple-200 group-hover:border-brandPrimary flex flex-col items-center justify-center shadow-lg group-hover:shadow-purple-200/60 group-hover:shadow-2xl group-hover:scale-105 transition-all duration-300">
+                            <i class="fa-solid fa-stethoscope text-4xl text-brandPrimary mb-1"></i>
+                            <span class="text-[10px] font-black text-brandPrimary/40 tracking-[0.2em] uppercase">01</span>
+                        </div>
+                        <span class="absolute -top-2 -right-1 w-7 h-7 rounded-full bg-brandPrimary text-white text-[11px] font-black flex items-center justify-center shadow ring-2 ring-white">1</span>
+                    </div>
+                    <h4 class="text-lg font-bold text-brandDark mb-2 leading-snug">1-on-1 Expert Counseling</h4>
+                    <p class="text-[14px] text-black leading-relaxed max-w-[180px]">Sit down with seasoned medical admission experts to find the best universities for your NEET score and budget.</p>
+                </div>
+
+                <div class="flex flex-col items-center text-center group gs-reveal">
+                    <div class="relative mb-5">
+                        <div class="w-36 h-36 rounded-full bg-white border-4 border-pink-200 group-hover:border-brandSecondary flex flex-col items-center justify-center shadow-lg group-hover:shadow-pink-200/60 group-hover:shadow-2xl group-hover:scale-105 transition-all duration-300">
+                            <i class="fa-solid fa-award text-4xl text-brandSecondary mb-1"></i>
+                            <span class="text-[10px] font-black text-brandSecondary/40 tracking-[0.2em] uppercase">02</span>
+                        </div>
+                        <span class="absolute -top-2 -right-1 w-7 h-7 rounded-full bg-brandSecondary text-white text-[11px] font-black flex items-center justify-center shadow ring-2 ring-white">2</span>
+                    </div>
+                    <h4 class="text-lg font-bold text-brandDark mb-2 leading-snug">Scholarship Assessment</h4>
+                    <p class="text-[14px] text-black leading-relaxed max-w-[180px]">Discover hidden financial aid. Get your profile evaluated on the spot for exclusive tuition fee waivers.</p>
+                </div>
+
+                <div class="flex flex-col items-center text-center group gs-reveal">
+                    <div class="relative mb-5">
+                        <div class="w-36 h-36 rounded-full bg-white border-4 border-emerald-200 group-hover:border-emerald-500 flex flex-col items-center justify-center shadow-lg group-hover:shadow-emerald-200/60 group-hover:shadow-2xl group-hover:scale-105 transition-all duration-300">
+                            <i class="fa-solid fa-building-columns text-4xl text-emerald-500 mb-1"></i>
+                            <span class="text-[10px] font-black text-emerald-500/40 tracking-[0.2em] uppercase">03</span>
+                        </div>
+                        <span class="absolute -top-2 -right-1 w-7 h-7 rounded-full bg-emerald-500 text-white text-[11px] font-black flex items-center justify-center shadow ring-2 ring-white">3</span>
+                    </div>
+                    <h4 class="text-lg font-bold text-brandDark mb-2 leading-snug">Direct University Access</h4>
+                    <p class="text-[14px] text-black leading-relaxed max-w-[180px]">Speak directly with authorized delegates and deans from top MCI & WHO recognised institutions abroad.</p>
+                </div>
+
+                <div class="flex flex-col items-center text-center group gs-reveal">
+                    <div class="relative mb-5">
+                        <div class="w-36 h-36 rounded-full bg-white border-4 border-blue-200 group-hover:border-blue-500 flex flex-col items-center justify-center shadow-lg group-hover:shadow-blue-200/60 group-hover:shadow-2xl group-hover:scale-105 transition-all duration-300">
+                            <i class="fa-solid fa-shield-halved text-4xl text-blue-500 mb-1"></i>
+                            <span class="text-[10px] font-black text-blue-500/40 tracking-[0.2em] uppercase">04</span>
+                        </div>
+                        <span class="absolute -top-2 -right-1 w-7 h-7 rounded-full bg-blue-500 text-white text-[11px] font-black flex items-center justify-center shadow ring-2 ring-white">4</span>
+                    </div>
+                    <h4 class="text-lg font-bold text-brandDark mb-2 leading-snug">End-to-End Support</h4>
+                    <p  class="text-[14px]  text-black leading-relaxed max-w-[180px]">From documentation and visa processing to forex, our team guides you every step until graduation.</p>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="mt-16 pt-10 border-t border-gray-200/60 flex flex-col sm:flex-row items-center justify-between gap-6 gs-reveal">
+            <div class="flex items-center gap-3 bg-red-50 border border-red-200 rounded-xl px-4 py-3">
+                <span class="flex-shrink-0 w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse"></span>
+                <div>
+                    <p class="text-xs font-extrabold text-red-600 uppercase tracking-widest leading-tight">Limited passes available for each city</p>
+                    <p class="text-[11px] text-red-500 font-semibold mt-0.5">
+                        Offer expires in&nbsp;<span id="benefitsCountdown" class="font-extrabold">10:00</span>
+                    </p>
+                </div>
+            </div>
+            <a href="#contact" class="bg-brandPrimary text-white px-10 py-4 rounded-lg font-bold text-base hover:bg-brandDark transition-colors tracking-wide shadow-md w-full sm:w-auto text-center">
+                Free Registration
+            </a>
+        </div>
+    </div>
+</section>
+
+
+    <!-- ── Gallery Section ─────────────────────────────────────────── -->
+    <section id="gallery" class="py-16 md:py-24 bg-white border-t border-gray-100 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <!-- Header -->
+            <div class="text-center mb-10 gs-reveal">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brandPrimary/10 text-brandPrimary text-xs font-bold mb-4 uppercase tracking-wider border border-brandPrimary/20">
+                    <span class="w-2 h-2 rounded-full bg-brandPrimary animate-pulse"></span> Past Expos
+                </div>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-brandDark mb-3 tracking-tight">Get your guidance from top delegates</h2>
+                <p class="text-black max-w-xl mx-auto text-sm font-medium leading-relaxed">
+                    Thousands of students have already attended our expos. Here's a glimpse from the ground.
+                </p>
+            </div>
+
+            <!-- Bento-box collage: 4 cols × 3 rows on desktop, 2 cols on mobile — every cell filled -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-2 auto-rows-[160px] lg:auto-rows-[190px] gs-reveal">
+
+                <!-- img 1: full width on mobile, 2×2 hero on desktop -->
+                <button class="gallery-item col-span-2 lg:col-span-2 lg:row-span-2 overflow-hidden rounded-2xl shadow-md hover:shadow-xl hover:brightness-110 transition-all duration-300 focus:outline-none" data-src="assets/1.webp">
+                    <img src="assets/1.webp" alt="Expo photo 1" class="w-full h-full object-cover block" loading="lazy" />
+                </button>
+
+                <!-- img 2: 50% on mobile -->
+                <button class="gallery-item overflow-hidden rounded-2xl shadow-md hover:shadow-xl hover:brightness-110 transition-all duration-300 focus:outline-none" data-src="assets/2.webp">
+                    <img src="assets/2.webp" alt="Expo photo 2" class="w-full h-full object-cover block" loading="lazy" />
+                </button>
+
+                <!-- img 3: 50% on mobile -->
+                <button class="gallery-item overflow-hidden rounded-2xl shadow-md hover:shadow-xl hover:brightness-110 transition-all duration-300 focus:outline-none" data-src="assets/3.webp">
+                    <img src="assets/3.webp" alt="Expo photo 3" class="w-full h-full object-cover block" loading="lazy" />
+                </button>
+
+                <!-- img 4–8: hidden on mobile, visible on desktop -->
+                <button class="gallery-item hidden lg:block overflow-hidden rounded-2xl shadow-md hover:shadow-xl hover:brightness-110 transition-all duration-300 focus:outline-none" data-src="assets/4.webp">
+                    <img src="assets/4.webp" alt="Expo photo 4" class="w-full h-full object-cover block" loading="lazy" />
+                </button>
+
+                <button class="gallery-item hidden lg:block overflow-hidden rounded-2xl shadow-md hover:shadow-xl hover:brightness-110 transition-all duration-300 focus:outline-none" data-src="assets/5.webp">
+                    <img src="assets/5.webp" alt="Expo photo 5" class="w-full h-full object-cover block" loading="lazy" />
+                </button>
+
+                <button class="gallery-item hidden lg:block overflow-hidden rounded-2xl shadow-md hover:shadow-xl hover:brightness-110 transition-all duration-300 focus:outline-none" data-src="assets/6.webp">
+                    <img src="assets/6.webp" alt="Expo photo 6" class="w-full h-full object-cover block" loading="lazy" />
+                </button>
+
+                <button class="gallery-item hidden lg:block overflow-hidden rounded-2xl shadow-md hover:shadow-xl hover:brightness-110 transition-all duration-300 focus:outline-none" data-src="assets/7.webp">
+                    <img src="assets/7.webp" alt="Expo photo 7" class="w-full h-full object-cover block" loading="lazy" />
+                </button>
+
+                <button class="gallery-item hidden lg:col-span-2 lg:block overflow-hidden rounded-2xl shadow-md hover:shadow-xl hover:brightness-110 transition-all duration-300 focus:outline-none" data-src="assets/8.webp">
+                    <img src="assets/8.webp" alt="Expo photo 8" class="w-full h-full object-cover block" loading="lazy" />
+                </button>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="hidden fixed inset-0 z-[400] items-center justify-center p-4">
+        <div id="lightboxBackdrop" class="absolute inset-0 bg-black/85 backdrop-blur-sm"></div>
+        <button id="lightboxClose" class="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center bg-white/20 hover:bg-white/40 text-white rounded-full transition-colors">
+            <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+        <button id="lightboxPrev" class="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center bg-white/20 hover:bg-white/40 text-white rounded-full transition-colors">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button id="lightboxNext" class="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center bg-white/20 hover:bg-white/40 text-white rounded-full transition-colors">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+        <img id="lightboxImg" src="" alt="Expo photo" class="relative max-w-full max-h-[90vh] rounded-2xl shadow-2xl object-contain" />
+    </div>
+
+
+<section id="contact" class="py-20 md:py-28 bg-white relative">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col lg:flex-row gap-16 lg:items-stretch">
+
+                <div class="w-full lg:w-5/12 flex flex-col gs-reveal">
+                    <div class="space-y-6">
+                        <h2 class="text-3xl sm:text-4xl font-black text-brandDark tracking-tight leading-none">
+                            Talk to an Expert
+                        </h2>
+                        <div class="w-12 h-1 bg-brandPrimary"></div>
+                        <p class="text-gray-600 text-base leading-relaxed">
+                            Get personalized counseling from industry veterans. We ensure your application stands out at global institutions.
+                        </p>
+                    </div>
+
+                    <div class="mt-12 lg:mt-0 space-y-8 border-t border-gray-100 pt-8">
+                        <div class="border-l-2 border-brandPrimary pl-5">
+                            <h4 class="text-sm font-bold text-brandDark uppercase tracking-wider">24/7 Dedicated Support</h4>
+                            <p class="text-sm text-black mt-1">We are always here to guide you along the journey.</p>
+                        </div>
+
+                        <div class="border-l-2 border-brandSecondary pl-5">
+                            <h4 class="text-sm font-bold text-brandDark uppercase tracking-wider">Quick Turnaround</h4>
+                            <p class="text-sm text-black mt-1">Expect an advisor to call you back within 30 minutes.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-7/12 gs-reveal">
+                    <div class="bg-gray-50 rounded-xl p-8 sm:p-10 border border-gray-200/60">
+                        <form id="expertForm" class="space-y-5">
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                <div class="space-y-1">
+                                    <label class="block text-[11px] font-bold text-gray-400 uppercase tracking-wider">First Name</label>
+                                    <input id="firstName" type="text" required
+                                        class="w-full bg-white border border-gray-200 rounded-lg py-3 px-4 text-brandDark focus:outline-none focus:border-brandPrimary transition-colors text-sm font-medium"
+                                        placeholder="John">
+                                </div>
+                                <div class="space-y-1">
+                                    <label class="block text-[11px] font-bold text-gray-400 uppercase tracking-wider">Last Name</label>
+                                    <input id="lastName" type="text" required
+                                        class="w-full bg-white border border-gray-200 rounded-lg py-3 px-4 text-brandDark focus:outline-none focus:border-brandPrimary transition-colors text-sm font-medium"
+                                        placeholder="Doe">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                <div class="space-y-1">
+                                    <label class="block text-[11px] font-bold text-gray-400 uppercase tracking-wider">Email</label>
+                                    <input id="workEmail" type="email" required
+                                        class="w-full bg-white border border-gray-200 rounded-lg py-3 px-4 text-brandDark focus:outline-none focus:border-brandPrimary transition-colors text-sm font-medium"
+                                        placeholder="john@example.com">
+                                </div>
+                                <div class="space-y-1">
+                                    <label class="block text-[11px] font-bold text-gray-400 uppercase tracking-wider">Phone Number</label>
+                                    <input id="phone" type="tel" required
+                                        class="w-full bg-white border border-gray-200 rounded-lg py-3 px-4 text-brandDark focus:outline-none focus:border-brandPrimary transition-colors text-sm font-medium"
+                                        placeholder="+91">
+                                </div>
+                            </div>
+
+                            <div class="space-y-1">
+                                <label class="block text-[11px] font-bold text-gray-400 uppercase tracking-wider">City</label>
+                                <select id="city" required
+                                    class="w-full bg-white border border-gray-200 rounded-lg py-3 px-4 text-brandDark focus:outline-none focus:border-brandPrimary transition-colors text-sm font-medium">
+                                    <option value="" disabled selected>Select your city</option>
+                                    <option value="Salem">Salem</option>
+                                    <option value="Chennai">Chennai</option>
+                                    <option value="Erode">Erode</option>
+                                    <option value="Coimbatore">Coimbatore</option>
+                                    <option value="Trichy">Trichy</option>
+                                    <option value="Madurai">Madurai</option>
+                                    <option value="Pondicherry">Pondicherry</option>
+                                </select>
+                            </div>
+
+                            <div class="pt-4">
+                                <button id="submitBtn" type="submit"
+                                    class="w-full bg-brandDark text-white py-4 rounded-lg font-bold tracking-wide hover:bg-gray-800 transition-colors shadow-md">
+                                    Request Callback
+                                </button>
+                            </div>
+
+                            <p class="text-[11px] text-gray-400 font-medium text-center mt-4">
+                                By submitting, you agree to our Terms of Service and Privacy Policy.
+                            </p>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="bg-surface text-gray-600 pt-16 pb-8 border-t border-gray-200">
+        <div class="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-6 mb-16">
+
+                <div class="col-span-1 md:col-span-2 lg:col-span-3">
+                    <div class="flex items-center gap-2 mb-6">
+                        <img class="h-28 sm:h-28" src="assets/logo2.png" alt="KlickEdu Logo">
+                    </div>
+
+                    <div class="space-y-4 mb-8">
+                        <p class="text-sm text-black font-medium leading-relaxed">Student empowering platform</p>
+                        <p class="text-sm text-black font-medium leading-relaxed pr-4">Custom-made education
+                            solutions for the New Generation</p>
+                    </div>
+                    <div class="space-y-3 text-sm font-bold text-brandDark">
+                        <a href="tel:+918111996000"
+                            class="flex items-center gap-3 hover:text-brandPrimary transition-colors">
+                            <i class="fa-solid fa-phone text-gray-400"></i> +91 8111 99 6000
+                        </a>
+                        <a href="mailto:hello@klickedu.com"
+                            class="flex items-center gap-3 hover:text-brandPrimary transition-colors">
+                            <i class="fa-regular fa-envelope text-gray-400"></i> hello@klickedu.com
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-span-1 lg:col-span-2">
+                    <h4 class="text-brandDark font-bold mb-4 text-sm uppercase tracking-wider">Courses</h4>
+                    <ul class="space-y-3 text-sm font-medium">
+                        <li><a href="#" class="hover:text-brandPrimary transition-colors">MBBS Abroad</a></li>
+                        <li><a href="#" class="hover:text-brandPrimary transition-colors">Aviation</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-span-1 md:col-span-2 lg:col-span-4">
+                    <h4 class="text-brandDark font-bold mb-4 text-sm uppercase tracking-wider">Address</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+
+                        <div class="space-y-6">
+                            <div>
+                                <h5 class="text-brandDark font-bold text-sm flex items-center gap-2 mb-2">
+                                    <i class="fa-solid fa-location-dot text-gray-400"></i> Kerala :
+                                </h5>
+                                <p class="text-xs text-black font-medium leading-relaxed pl-5">
+                                    KlickEdu, 1st Floor,<br>
+                                    MS Building, behind<br>
+                                    New Theatre,<br>
+                                    Aristo, Thampanoor,<br>
+                                    Thiruvananthapuram,<br>
+                                    Kerala, 695012
+                                </p>
+                            </div>
+                            <div>
+                                <h5 class="text-brandDark font-bold text-sm flex items-center gap-2 mb-2">
+                                    <i class="fa-solid fa-location-dot text-gray-400"></i> Coimbatore :
+                                </h5>
+                                <p class="text-xs text-black font-medium leading-relaxed pl-5">
+                                    DR. No.1270BCD,<br>
+                                    2nd floor, SB Classic<br>
+                                    Towers,<br>
+                                    Trichy Rd, Nadar<br>
+                                    Colony, Race Course<br>
+                                    Area, Coimbatore<br>
+                                    Tamil Nadu, 641018
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="space-y-6">
+                            <div>
+                                <h5 class="text-brandDark font-bold text-sm flex items-center gap-2 mb-2">
+                                    <i class="fa-solid fa-location-dot text-gray-400"></i> Vadodara :
+                                </h5>
+                                <p class="text-xs text-black font-medium leading-relaxed pl-5">
+                                    Indraprasth<br>
+                                    Complex, 1st Floor,<br>
+                                    Nizampura Main<br>
+                                    Road, Vadodara,<br>
+                                    Gujarat, 390002.<br>
+                                    GST Number :<br>
+                                    24AAECD6473F1ZQ
+                                </p>
+                            </div>
+                            <div>
+                                <h5 class="text-brandDark font-bold text-sm flex items-center gap-2 mb-2">
+                                    <i class="fa-solid fa-location-dot text-gray-400"></i> Agra :
+                                </h5>
+                                <p class="text-xs text-black font-medium leading-relaxed pl-5">
+                                    Shop no -1, First<br>
+                                    Floor,<br>
+                                    Vinayak Mall,<br>
+                                    Deewani crossing<br>
+                                    (LOTUS Hospital<br>
+                                    Building)<br>
+                                    M.G. Road, Agra<br>
+                                    282002 (U.P)
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-span-1 md:col-span-2 lg:col-span-3">
+                    <h4 class="text-brandDark font-bold mb-4 text-sm uppercase tracking-wider">Our Network Offices</h4>
+
+                    <div class="mb-6">
+                        <h5 class="text-brandDark font-bold text-sm mb-2">Overseas :</h5>
+                        <ul class="space-y-1.5 text-xs text-black font-medium list-disc pl-5 marker:text-gray-300">
+                            <li>Kathmandu, Nepal</li>
+                            <li>Dhaka, Bangladesh</li>
+                            <li>Colombo, Sri Lanka</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h5 class="text-brandDark font-bold text-sm mb-2">India :</h5>
+                        <ul class="space-y-1.5 text-xs text-black font-medium list-disc pl-5 marker:text-gray-300">
+                            <li>Rajasthan</li>
+                            <li>Delhi -NCR</li>
+                            <li>Uttar Pradesh</li>
+                            <li>Madhya Pradesh</li>
+                            <li>Karnataka</li>
+                            <li>Gujarat</li>
+                            <li>Maharashtra</li>
+                            <li>Punjab</li>
+                            <li>Himachal Pradesh</li>
+                            <li>Haryana</li>
+                            <li>North East States of India</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="text-center md:text-left text-xs font-medium text-black pt-8 border-t border-gray-200">
+                <p>© 2026 All Rights Reserved by DSA Global Pvt Ltd, Parent Company of KlickEdu.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-white/90', 'backdrop-blur-md', 'border-gray-100', 'shadow-sm');
+                nav.classList.remove('border-transparent');
+            } else {
+                nav.classList.remove('bg-white/90', 'backdrop-blur-md', 'border-gray-100', 'shadow-sm');
+                nav.classList.add('border-transparent');
+            }
+        });
+
+        const revealElements = document.querySelectorAll(".gs-reveal");
+        revealElements.forEach((elem) => {
+            if (elem.closest('#expo-benefits')) return;
+
+            gsap.fromTo(elem, {
+                y: 40,
+                opacity: 0
+            }, {
+                y: 0,
+                opacity: 1,
+                duration: 1.2,
+                ease: "power4.out",
+                scrollTrigger: {
+                    trigger: elem,
+                    start: "top 85%",
+                    toggleActions: "play none none reverse"
+                }
+            });
+        });
+
+        const counters = document.querySelectorAll('.counter');
+        ScrollTrigger.create({
+            trigger: "#stats-container",
+            start: "top 85%",
+            once: true,
+            onEnter: () => {
+                counters.forEach(counter => {
+                    const target = +counter.getAttribute('data-target');
+                    gsap.to(counter, {
+                        innerHTML: target,
+                        duration: 3,
+                        snap: { innerHTML: 1 },
+                        ease: "power2.out",
+                        onUpdate: function () {
+                            counter.innerHTML = Math.round(this.targets()[0].innerHTML).toLocaleString();
+                        }
+                    });
+                });
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const slider = document.getElementById('cardSlider');
+            const slideLeftBtn = document.getElementById('slideLeft');
+            const slideRightBtn = document.getElementById('slideRight');
+            const scrollAmount = 300;
+
+            if (slideLeftBtn && slideRightBtn && slider) {
+                slideLeftBtn.addEventListener('click', () => {
+                    slider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                });
+                slideRightBtn.addEventListener('click', () => {
+                    slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                });
+            }
+
+            const muteButtons = document.querySelectorAll('.mute-btn');
+            muteButtons.forEach(button => {
+                button.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const videoContainer = this.closest('.relative');
+                    const video = videoContainer.querySelector('video');
+                    const iconMuted = this.querySelector('.icon-muted');
+                    const iconUnmuted = this.querySelector('.icon-unmuted');
+
+                    if (video) {
+                        if (video.muted) {
+                            video.muted = false;
+                            iconMuted.classList.add('hidden');
+                            iconUnmuted.classList.remove('hidden');
+                        } else {
+                            video.muted = true;
+                            iconUnmuted.classList.add('hidden');
+                            iconMuted.classList.remove('hidden');
+                        }
+                    }
+                });
+            });
+
+            const eventSchedule = [
+                { isoDate: '2026-06-26T09:00:00', displayDate: 'June 26, 2026', city: 'Erode', venue: 'Turmeric Hotel' },
+                { isoDate: '2026-06-27T09:00:00', displayDate: 'June 27, 2026', city: 'Salem', venue: 'Radisson' },
+                { isoDate: '2026-06-28T09:00:00', displayDate: 'June 28, 2026', city: 'Chennai', venue: 'Park Inn' },
+                { isoDate: '2026-06-29T09:00:00', displayDate: 'June 29, 2026', city: 'Pondy', venue: 'Accord' },
+                { isoDate: '2026-07-03T09:00:00', displayDate: 'July 03, 2026', city: 'Trichy', venue: 'SRM' },
+                { isoDate: '2026-07-04T09:00:00', displayDate: 'July 04, 2026', city: 'Madurai', venue: 'Pandian' },
+                { isoDate: '2026-07-05T09:00:00', displayDate: 'July 05, 2026', city: 'Coimbatore', venue: 'Zone by Park' }
+            ];
+
+            let countdownInterval;
+
+            function initDynamicEvent() {
+                const now = new Date();
+                const upcomingEvent = eventSchedule.find(event => new Date(event.isoDate) > now);
+
+                if (!upcomingEvent) {
+                    const eventDate = document.getElementById('event-date');
+                    const eventCity = document.getElementById('event-city');
+                    const eventVenue = document.getElementById('event-venue');
+                    
+                    if (eventDate) eventDate.textContent = "Tour Concluded";
+                    if (eventCity) eventCity.textContent = "TBD";
+                    if (eventVenue) eventVenue.textContent = "Stay tuned for updates";
+
+                    ['days', 'hours', 'mins', 'secs'].forEach(id => {
+                        const el = document.getElementById(id);
+                        if (el) el.textContent = "00";
+                    });
+                    return;
+                }
+
+                const eventDateEl = document.getElementById('event-date');
+                const eventCityEl = document.getElementById('event-city');
+                const eventVenueEl = document.getElementById('event-venue');
+
+                if (eventDateEl) eventDateEl.textContent = upcomingEvent.displayDate;
+                if (eventCityEl) eventCityEl.textContent = upcomingEvent.city;
+                if (eventVenueEl) eventVenueEl.textContent = upcomingEvent.venue;
+
+                if (countdownInterval) clearInterval(countdownInterval);
+
+                const targetTime = new Date(upcomingEvent.isoDate).getTime();
+
+                countdownInterval = setInterval(() => {
+                    const currentTime = new Date().getTime();
+                    const timeRemaining = targetTime - currentTime;
+
+                    if (timeRemaining <= 0) {
+                        clearInterval(countdownInterval);
+                        initDynamicEvent();
+                        return;
+                    }
+
+                    const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+                    const dEl = document.getElementById('days');
+                    const hEl = document.getElementById('hours');
+                    const mEl = document.getElementById('mins');
+                    const sEl = document.getElementById('secs');
+
+                    if(dEl) dEl.textContent = String(days).padStart(2, '0');
+                    if(hEl) hEl.textContent = String(hours).padStart(2, '0');
+                    if(mEl) mEl.textContent = String(minutes).padStart(2, '0');
+                    if(sEl) sEl.textContent = String(seconds).padStart(2, '0');
+                }, 1000);
+            }
+
+            initDynamicEvent();
+
+            // Mark past event cards as Completed
+            (function markPastEvents() {
+                const now = new Date();
+                eventSchedule.forEach(event => {
+                    if (new Date(event.isoDate) <= now) {
+                        document.querySelectorAll('#expo .grid > div').forEach(card => {
+                            const title = card.querySelector('h3');
+                            if (title && title.textContent.trim().toLowerCase().startsWith(event.city.toLowerCase().slice(0, 4))) {
+                                const badge = card.querySelector('span.rounded-full.border');
+                                if (badge) {
+                                    badge.textContent = 'Completed';
+                                    badge.className = 'text-[10px] font-bold uppercase tracking-wider text-gray-400 bg-gray-100 px-2 py-0.5 rounded-full border border-gray-200';
+                                }
+                            }
+                        });
+                    }
+                });
+            })();
+
+            const form = document.getElementById('expertForm');
+            const webAppUrl = 'https://script.google.com/macros/s/AKfycbxaecXo-MEHKmavszeroonZAJbpkhdLZD74TRULHbHPDwiMwdgO_5SHxpiS_YeooYix/exec';
+
+            if (form) {
+                form.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+
+                    const submitBtn = document.getElementById('submitBtn');
+                    const originalBtnText = submitBtn.innerText;
+
+                    submitBtn.innerText = 'Sending...';
+                    submitBtn.disabled = true;
+
+                    const payload = {
+                        firstName: document.getElementById('firstName').value,
+                        lastName: document.getElementById('lastName').value,
+                        email: document.getElementById('workEmail').value,
+                        phone: document.getElementById('phone').value,
+                        city: document.getElementById('city').value // Added missing city field
+                    };
+
+                    try {
+                        const response = await fetch(webAppUrl, {
+                            method: 'POST',
+                            mode: 'no-cors',
+                            headers: {
+                                'Content-Type': 'text/plain;charset=utf-8',
+                            },
+                            body: JSON.stringify(payload)
+                        });
+
+                        form.reset();
+
+                        submitBtn.innerText = 'Submitted ✓';
+                        submitBtn.classList.remove('bg-brandDark', 'hover:bg-gray-800');
+                        submitBtn.classList.add('bg-emerald-600', 'hover:bg-emerald-700');
+
+                        setTimeout(() => {
+                            submitBtn.innerText = originalBtnText;
+                            submitBtn.classList.add('bg-brandDark', 'hover:bg-gray-800');
+                            submitBtn.classList.remove('bg-emerald-600', 'hover:bg-emerald-700');
+                            submitBtn.disabled = false;
+                        }, 3000);
+
+                    } catch (error) {
+                        console.error('Error submitting form:', error);
+
+                        submitBtn.innerText = 'Error! Try Again';
+                        submitBtn.classList.remove('bg-brandDark', 'hover:bg-gray-800');
+                        submitBtn.classList.add('bg-red-600', 'hover:bg-red-700');
+
+                        setTimeout(() => {
+                            submitBtn.innerText = originalBtnText;
+                            submitBtn.classList.add('bg-brandDark', 'hover:bg-gray-800');
+                            submitBtn.classList.remove('bg-red-600', 'hover:bg-red-700');
+                            submitBtn.disabled = false;
+                        }, 3000);
+                    }
+                });
+            }
+
+            // ── Registration modal ──────────────────────────────────────
+            const regModal = document.getElementById('regModal');
+            const regModalClose = document.getElementById('regModalClose');
+            const regModalBackdrop = document.getElementById('regModalBackdrop');
+            const modalRegForm = document.getElementById('modalRegForm');
+            const mCity = document.getElementById('m-city');
+            const modalSubmitBtn = document.getElementById('modalSubmitBtn');
+
+            function openRegModal(city = '') {
+                if (mCity) mCity.value = city;
+                if (regModal) {
+                    regModal.classList.remove('hidden');
+                    regModal.classList.add('flex');
+                    document.body.style.overflow = 'hidden';
+                }
+            }
+
+            function closeRegModal() {
+                if (regModal) {
+                    regModal.classList.add('hidden');
+                    regModal.classList.remove('flex');
+                    document.body.style.overflow = '';
+                }
+            }
+
+            if (regModalClose) regModalClose.addEventListener('click', closeRegModal);
+            if (regModalBackdrop) regModalBackdrop.addEventListener('click', closeRegModal);
+            document.addEventListener('keydown', e => { if (e.key === 'Escape') closeRegModal(); });
+
+            // Universal intercept for all anchor tags linking to #contact
+            document.querySelectorAll('a[href="#contact"]').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault(); 
+                    openRegModal('');
+                });
+            });
+
+            // City cards → read city from the card's h3
+            document.querySelectorAll('.expo-reg-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const card = btn.closest('.group');
+                    const city = card ? card.querySelector('h3')?.textContent.trim() : '';
+                    openRegModal(city);
+                });
+            });
+
+            // Modal form submission
+            if (modalRegForm) {
+                modalRegForm.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    const originalText = modalSubmitBtn.innerText;
+                    modalSubmitBtn.innerText = 'Sending...';
+                    modalSubmitBtn.disabled = true;
+
+                    const payload = {
+                        firstName: document.getElementById('m-firstName').value,
+                        lastName:  document.getElementById('m-lastName').value,
+                        email:     document.getElementById('m-email').value,
+                        phone:     document.getElementById('m-phone').value,
+                        city:      mCity.value
+                    };
+
+                    try {
+                        await fetch(webAppUrl, {
+                            method: 'POST',
+                            mode: 'no-cors',
+                            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                            body: JSON.stringify(payload)
+                        });
+                        modalRegForm.reset();
+                        modalSubmitBtn.innerText = 'Submitted ✓';
+                        modalSubmitBtn.classList.replace('bg-brandDark', 'bg-emerald-600');
+                        setTimeout(() => {
+                            closeRegModal();
+                            modalSubmitBtn.innerText = originalText;
+                            modalSubmitBtn.classList.replace('bg-emerald-600', 'bg-brandDark');
+                            modalSubmitBtn.disabled = false;
+                        }, 2000);
+                    } catch (err) {
+                        modalSubmitBtn.innerText = 'Error! Try Again';
+                        modalSubmitBtn.classList.replace('bg-brandDark', 'bg-red-600');
+                        setTimeout(() => {
+                            modalSubmitBtn.innerText = originalText;
+                            modalSubmitBtn.classList.replace('bg-red-600', 'bg-brandDark');
+                            modalSubmitBtn.disabled = false;
+                        }, 3000);
+                    }
+                });
+            }
+
+            // ── Gallery lightbox ────────────────────────────────────────
+            const galleryItems  = document.querySelectorAll('.gallery-item');
+            const lightbox      = document.getElementById('lightbox');
+            const lightboxImg   = document.getElementById('lightboxImg');
+            const lightboxClose = document.getElementById('lightboxClose');
+            const lightboxBack  = document.getElementById('lightboxBackdrop');
+            const lightboxPrev  = document.getElementById('lightboxPrev');
+            const lightboxNext  = document.getElementById('lightboxNext');
+            const srcs = Array.from(galleryItems).map(b => b.dataset.src);
+            let currentPhoto = 0;
+
+            function openLightbox(index) {
+                currentPhoto = index;
+                lightboxImg.src = srcs[currentPhoto];
+                lightbox.classList.remove('hidden');
+                lightbox.classList.add('flex');
+                document.body.style.overflow = 'hidden';
+            }
+            function closeLightbox() {
+                lightbox.classList.add('hidden');
+                lightbox.classList.remove('flex');
+                document.body.style.overflow = '';
+            }
+            function showPhoto(index) {
+                currentPhoto = (index + srcs.length) % srcs.length;
+                lightboxImg.src = srcs[currentPhoto];
+            }
+
+            galleryItems.forEach((btn, i) => btn.addEventListener('click', () => openLightbox(i)));
+            lightboxClose.addEventListener('click', closeLightbox);
+            lightboxBack.addEventListener('click', closeLightbox);
+            lightboxPrev.addEventListener('click', () => showPhoto(currentPhoto - 1));
+            lightboxNext.addEventListener('click', () => showPhoto(currentPhoto + 1));
+            document.addEventListener('keydown', e => {
+                if (!lightbox.classList.contains('hidden')) {
+                    if (e.key === 'Escape')    closeLightbox();
+                    if (e.key === 'ArrowLeft') showPhoto(currentPhoto - 1);
+                    if (e.key === 'ArrowRight')showPhoto(currentPhoto + 1);
+                }
+            });
+        });
+    </script>
+<div id="regModal" class="hidden fixed inset-0 z-[300] items-center justify-center p-4">
+    <div id="regModalBackdrop" class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+    <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-lg z-10 overflow-hidden">
+        <div class="bg-pastel-gradient px-8 pt-8 pb-6 border-b border-gray-100">
+            <button id="regModalClose" class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-white/80 text-black hover:text-gray-800 transition-colors shadow-sm">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <p class="text-[10px] font-bold text-brandSecondary uppercase tracking-wider mb-1">Medico Expo 2026</p>
+            <h3 class="text-2xl font-extrabold text-brandDark">Register for Free</h3>
+        </div>
+        <form id="modalRegForm" class="px-8 py-6 space-y-4">
+            <div class="grid grid-cols-2 gap-4">
+                <div class="space-y-1">
+                    <label class="block text-[11px] font-bold text-gray-400 uppercase tracking-wider">First Name</label>
+                    <input id="m-firstName" type="text" required placeholder="John"
+                        class="w-full bg-gray-50 border border-gray-200 rounded-lg py-3 px-4 text-brandDark focus:outline-none focus:border-brandPrimary transition-colors text-sm font-medium">
+                </div>
+                <div class="space-y-1">
+                    <label class="block text-[11px] font-bold text-gray-400 uppercase tracking-wider">Last Name</label>
+                    <input id="m-lastName" type="text" required placeholder="Doe"
+                        class="w-full bg-gray-50 border border-gray-200 rounded-lg py-3 px-4 text-brandDark focus:outline-none focus:border-brandPrimary transition-colors text-sm font-medium">
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="space-y-1">
+                    <label class="block text-[11px] font-bold text-gray-400 uppercase tracking-wider">Email</label>
+                    <input id="m-email" type="email" required placeholder="john@example.com"
+                        class="w-full bg-gray-50 border border-gray-200 rounded-lg py-3 px-4 text-brandDark focus:outline-none focus:border-brandPrimary transition-colors text-sm font-medium">
+                </div>
+                <div class="space-y-1">
+                    <label class="block text-[11px] font-bold text-gray-400 uppercase tracking-wider">Phone Number</label>
+                    <input id="m-phone" type="tel" required placeholder="+91"
+                        class="w-full bg-gray-50 border border-gray-200 rounded-lg py-3 px-4 text-brandDark focus:outline-none focus:border-brandPrimary transition-colors text-sm font-medium">
+                </div>
+            </div>
+            <div class="space-y-1">
+                <label class="block text-[11px] font-bold text-gray-400 uppercase tracking-wider">City</label>
+                <select id="m-city" required
+                    class="w-full bg-gray-50 border border-gray-200 rounded-lg py-3 px-4 text-brandDark focus:outline-none focus:border-brandPrimary transition-colors text-sm font-medium">
+                    <option value="" disabled selected>Select your city</option>
+                    <option value="Salem">Salem</option>
+                    <option value="Chennai">Chennai</option>
+                    <option value="Erode">Erode</option>
+                    <option value="Coimbatore">Coimbatore</option>
+                    <option value="Trichy">Trichy</option>
+                    <option value="Madurai">Madurai</option>
+                    <option value="Pondicherry">Pondicherry</option>
+                </select>
+            </div>
+            <button id="modalSubmitBtn" type="submit"
+                class="w-full bg-brandDark text-white py-4 rounded-lg font-bold tracking-wide hover:bg-gray-800 transition-colors shadow-md">
+                Request Callback
+            </button>
+            <p class="text-center text-[11px] text-gray-400">By submitting, you agree to our Terms of Service and Privacy Policy.</p>
+        </form>
+    </div>
+</div>
+<!-- Fixed bottom Free Registration button (visible after home section) -->
+<div id="fixedRegBtn" class="fixed bottom-0 left-0 right-0 z-[250] transition-all duration-500 opacity-0 translate-y-full pointer-events-none px-0 sm:px-4 sm:bottom-5 sm:left-1/2 sm:right-auto sm:w-auto sm:-translate-x-1/2">
+    <a href="#contact"
+        class="flex items-center justify-center gap-3 bg-brandPrimary hover:bg-brandDark text-white w-full sm:w-auto sm:rounded-full px-8 py-5 sm:px-10 sm:py-5 font-bold text-xl sm:text-xl shadow-2xl shadow-purple-900/40 transition-colors">
+        <span class="flex items-center gap-2">
+            <i class="fa-solid fa-pen-to-square"></i>
+            Free Registration
+        </span>
+        <span class="flex items-center gap-1 bg-white/20 rounded-full px-3 py-1 text-xs font-bold tracking-widest">
+            <i class="fa-solid fa-clock text-[10px]"></i>
+            <span id="fixedCountdown">10:00</span>
+        </span>
+    </a>
+</div>
+
+<script>
+    (function () {
+        const btn      = document.getElementById('fixedRegBtn');
+        const homeSec  = document.getElementById('home');
+        const display  = document.getElementById('fixedCountdown');
+        if (!btn || !homeSec) return;
+
+        // Scroll show/hide
+        function update() {
+            const isMobile = window.innerWidth < 640;
+            if (isMobile) {
+                // Always visible at bottom on mobile
+                btn.classList.remove('opacity-0', 'translate-y-full', 'pointer-events-none');
+                btn.classList.add('opacity-100', 'translate-y-0');
+            } else if (homeSec.getBoundingClientRect().bottom < 0) {
+                btn.classList.remove('opacity-0', 'translate-y-full', 'pointer-events-none');
+                btn.classList.add('opacity-100', 'translate-y-0');
+            } else {
+                btn.classList.add('opacity-0', 'translate-y-full', 'pointer-events-none');
+                btn.classList.remove('opacity-100', 'translate-y-0');
+            }
+        }
+        window.addEventListener('scroll', update, { passive: true });
+        window.addEventListener('resize', update, { passive: true });
+        update();
+
+        // Shared 10-minute countdown — persists across refreshes for first 5 page loads
+        const benefitsDisplay = document.getElementById('benefitsCountdown');
+        const storedEnd   = parseInt(localStorage.getItem('regTimerEnd')   || '0');
+        const storedCount = parseInt(localStorage.getItem('regTimerCount') || '0');
+        const nowMs       = Date.now();
+        const newCount    = storedCount + 1;
+        let endTime;
+        if (storedEnd > nowMs && newCount <= 5) {
+            // Timer still running and within 5 refreshes — continue from stored time
+            endTime = storedEnd;
+            localStorage.setItem('regTimerCount', newCount);
+        } else {
+            // Start fresh
+            endTime = nowMs + 10 * 60 * 1000;
+            localStorage.setItem('regTimerEnd',   endTime);
+            localStorage.setItem('regTimerCount', '1');
+        }
+
+        function tick() {
+            const remaining = Math.max(0, Math.floor((endTime - Date.now()) / 1000));
+            const m = Math.floor(remaining / 60);
+            const s = remaining % 60;
+            const formatted = String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0');
+            if (display)         display.textContent         = formatted;
+            if (benefitsDisplay) benefitsDisplay.textContent = formatted;
+            if (remaining === 0) {
+                // Reset after expiry
+                endTime = Date.now() + 10 * 60 * 1000;
+                localStorage.setItem('regTimerEnd',   endTime);
+                localStorage.setItem('regTimerCount', '0');
+            }
+        }
+        tick();
+        setInterval(tick, 1000);
+    })();
+</script>
+
+</body>
+
+</html>
