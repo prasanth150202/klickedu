@@ -145,8 +145,128 @@
     </nav>
 
 
-    <section class="bg-white py-2.5 md:py-24 relative overflow-hidden">
-        <div style="padding-top: 70px;" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+   <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const locationsData = {
+            salem:       { name: 'Salem',      date: 'Jun 27, 2026', venue: 'Radisson',     video: '../assets/salem.mp4' },
+            chennai:     { name: 'Chennai',    date: 'Jun 28, 2026', venue: 'Park Inn',     video: '../assets/chennai.mp4' },
+            erode:       { name: 'Erode',      date: 'Jun 26, 2026', venue: 'Turmeric Hotel',             video: '../assets/Erode.webm' },
+            coimbatore:  { name: 'Coimbatore', date: 'Jul 05, 2026', venue: 'Zone by Park', video: '../assets/coimbatore.mp4' },
+            trichy:      { name: 'Trichy',     date: 'Jul 03, 2026', venue: 'SRM',          video: '../assets/trichy.mp4' },
+            madurai:     { name: 'Madurai',    date: 'Jul 04, 2026', venue: 'Pandian',       video: '../assets/madurai.mp4' },
+            pondicherry: { name: 'Pondicherry', date: 'Jun 29, 2026', venue: 'Accord',        video: '../assets/Podicherry.webm' }
+        };
+
+        const cityOrder = ['salem', 'chennai', 'pondicherry', 'erode', 'coimbatore', 'trichy', 'madurai'];
+        let currentIndex = 0;
+        let autoTimer = null;
+
+        const pins = document.querySelectorAll('.city-pin');
+        const mainVideo = document.getElementById('mainVideo');
+        const videoSource = document.getElementById('videoSource');
+        const displayCity = document.getElementById('displayCity');
+        const displayDate = document.getElementById('displayDate');
+        const displayVenue = document.getElementById('displayVenue');
+        const overlay = displayCity.closest('.absolute.bottom-6');
+
+        function activateCity(cityId) {
+            const data = locationsData[cityId];
+            if (!data) return;
+
+            // Reset all pins
+            pins.forEach(p => {
+                p.classList.remove('active-pin');
+                const ping = p.querySelector('.absolute.inline-flex.rounded-full');
+                const dot = p.querySelector('.pin-dot');
+                const label = p.querySelector('.pin-label');
+                if (ping) { ping.classList.remove('opacity-75', 'animate-ping'); ping.classList.add('opacity-0'); }
+                dot.classList.remove('bg-[#E558A0]', 'h-4', 'w-4', 'border-2', 'border-white', 'shadow-md');
+                dot.classList.add('bg-gray-400', 'h-3', 'w-3');
+                label.classList.remove('text-[#E558A0]');
+                label.classList.add('text-black');
+            });
+
+            // Activate target pin
+            const activePin = document.querySelector(`.city-pin[data-id="${cityId}"]`);
+            if (activePin) {
+                activePin.classList.add('active-pin');
+                const ping = activePin.querySelector('.absolute.inline-flex.rounded-full');
+                const dot = activePin.querySelector('.pin-dot');
+                const label = activePin.querySelector('.pin-label');
+                if (ping) { ping.classList.remove('opacity-0'); ping.classList.add('opacity-75', 'animate-ping'); }
+                dot.classList.remove('bg-gray-400', 'h-3', 'w-3');
+                dot.classList.add('bg-[#E558A0]', 'h-4', 'w-4', 'border-2', 'border-white', 'shadow-md');
+                label.classList.remove('text-black');
+                label.classList.add('text-[#E558A0]');
+            }
+
+            // Fade overlay → update → fade in
+            overlay.classList.add('opacity-0');
+            setTimeout(() => {
+                displayCity.textContent = data.name;
+                displayDate.textContent = data.date;
+                displayVenue.textContent = data.venue;
+                mainVideo.pause();
+                videoSource.setAttribute('src', data.video);
+                const ext = data.video.split('.').pop().toLowerCase();
+                videoSource.setAttribute('type', ext === 'webm' ? 'video/webm' : 'video/mp4');
+                mainVideo.load();
+                mainVideo.play();
+                overlay.classList.remove('opacity-0');
+
+                // Update fixed info card in the top-left of the map
+                document.getElementById('infoCity').textContent  = data.name;
+                document.getElementById('infoDate').textContent  = data.date;
+                document.getElementById('infoVenue').textContent = data.venue;
+            }, 250);
+        }
+
+        function startAutoPlay() {
+            clearInterval(autoTimer);
+            autoTimer = setInterval(() => {
+                currentIndex = (currentIndex + 1) % cityOrder.length;
+                activateCity(cityOrder[currentIndex]);
+            }, 5000);
+        }
+
+        // When video ends after a manual click, resume auto-cycling from the next city
+        mainVideo.addEventListener('ended', () => {
+            if (!autoTimer) {
+                currentIndex = (currentIndex + 1) % cityOrder.length;
+                activateCity(cityOrder[currentIndex]);
+                startAutoPlay();
+            }
+        });
+
+        // Manual pin click – play full video, pause auto-cycle until video ends
+        pins.forEach(pin => {
+            pin.addEventListener('click', () => {
+                const cityId = pin.getAttribute('data-id');
+                currentIndex = cityOrder.indexOf(cityId);
+                activateCity(cityId);
+                clearInterval(autoTimer);
+                autoTimer = null;
+            });
+        });
+
+        // Audio toggle
+        const muteToggle = document.getElementById('muteToggle');
+        const iconMuted = document.getElementById('iconMuted');
+        const iconUnmuted = document.getElementById('iconUnmuted');
+        muteToggle.addEventListener('click', () => {
+            mainVideo.muted = !mainVideo.muted;
+            iconMuted.classList.toggle('hidden', !mainVideo.muted);
+            iconUnmuted.classList.toggle('hidden', mainVideo.muted);
+        });
+
+        // Kick off auto-play
+        startAutoPlay();
+    });
+</script>
+
+
+    <section id="expo" class="bg-white py-16 md:py-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
             <div class="text-center mb-10 gs-reveal">
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brandPrimary/10 text-brandPrimary text-xs font-bold mb-4 uppercase tracking-wider border border-brandPrimary/20">
@@ -159,6 +279,10 @@
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 gs-reveal">
+
+                
+
+               
 
                 <div class="group bg-surface border border-gray-100 rounded-2xl p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
                     <div class="flex items-center justify-between mb-4">
