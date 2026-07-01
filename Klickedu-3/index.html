@@ -357,7 +357,7 @@
                             <span class="pin-label text-xs font-bold text-black group-hover:text-[#E558A0] transition-colors">Chennai</span>
                         </button>
 
-                        <button class="city-pin group absolute top-[43%] left-[72%] flex flex-col items-center gap-1 focus:outline-none" data-id="pondicherry">
+                        <button class="city-pin group absolute top-[38%] left-[68%] flex flex-col items-center gap-1 focus:outline-none" data-id="pondicherry">
                             <div class="relative flex h-5 w-5 items-center justify-center">
                                 <span class="absolute inline-flex h-full w-full rounded-full bg-[#E558A0] opacity-0 group-hover:opacity-75 group-hover:animate-ping transition-all duration-300"></span>
                                 <span class="pin-dot relative inline-flex rounded-full h-3 w-3 bg-gray-400 group-hover:bg-[#E558A0] transition-colors"></span>
@@ -475,13 +475,13 @@
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         const locationsData = {
-            salem:       { name: 'Salem',      date: 'Jun 27, 2026', venue: 'Radisson',     video: '../assets/salem.mp4' },
-            chennai:     { name: 'Chennai',    date: 'Jun 28, 2026', venue: 'Park Inn',     video: '../assets/chennai.mp4' },
-            erode:       { name: 'Erode',      date: 'Jun 26, 2026', venue: 'Turmeric Hotel',             video: '../assets/Erode.webm' },
-            coimbatore:  { name: 'Coimbatore', date: 'Jul 05, 2026', venue: 'Zone by Park', video: '../assets/coimbatore.mp4' },
-            trichy:      { name: 'Trichy',     date: 'Jul 03, 2026', venue: 'SRM',          video: '../assets/trichy.mp4' },
-            madurai:     { name: 'Madurai',    date: 'Jul 04, 2026', venue: 'Pandian',       video: '../assets/madurai.mp4' },
-            pondicherry: { name: 'Pondicherry', date: 'Jun 29, 2026', venue: 'Accord',        video: '../assets/Podicherry.webm' }
+            salem:       { name: 'Salem',      date: 'Jun 27, 2026', venue: 'Radisson',     isoDate: '2026-06-27T09:00:00', video: '../assets/salem.mp4' },
+            chennai:     { name: 'Chennai',    date: 'Jun 28, 2026', venue: 'Park Inn',     isoDate: '2026-06-28T09:00:00', video: '../assets/chennai.mp4' },
+            erode:       { name: 'Erode',      date: 'Jun 26, 2026', venue: 'Turmeric Hotel', isoDate: '2026-06-26T09:00:00', video: '../assets/Erode.webm' },
+            coimbatore:  { name: 'Coimbatore', date: 'Jul 05, 2026', venue: 'Zone by Park', isoDate: '2026-07-05T09:00:00', video: '../assets/coimbatore.mp4' },
+            trichy:      { name: 'Trichy',     date: 'Jul 03, 2026', venue: 'SRM',          isoDate: '2026-07-03T09:00:00', video: '../assets/trichy.mp4' },
+            madurai:     { name: 'Madurai',    date: 'Jul 04, 2026', venue: 'Pandian',       isoDate: '2026-07-04T09:00:00', video: '../assets/madurai.mp4' },
+            pondicherry: { name: 'Pondicherry', date: 'Jun 29, 2026', venue: 'Accord',        isoDate: '2026-06-29T09:00:00', video: '../assets/Podicherry.webm' }
         };
 
         const cityOrder = ['salem', 'chennai', 'pondicherry', 'erode', 'coimbatore', 'trichy', 'madurai'];
@@ -494,6 +494,10 @@
         const displayCity = document.getElementById('displayCity');
         const displayDate = document.getElementById('displayDate');
         const displayVenue = document.getElementById('displayVenue');
+        const infoDate = document.getElementById('infoDate');
+        const infoVenue = document.getElementById('infoVenue');
+        const dateCard = displayDate.closest('div');
+        const venueCard = displayVenue.closest('div');
         const overlay = displayCity.closest('.absolute.bottom-6');
 
         function activateCity(cityId) {
@@ -531,8 +535,25 @@
             overlay.classList.add('opacity-0');
             setTimeout(() => {
                 displayCity.textContent = data.name;
-                displayDate.textContent = data.date;
-                displayVenue.textContent = data.venue;
+                const isCompleted = new Date(data.isoDate) < new Date();
+
+                if (isCompleted) {
+                    displayDate.textContent = 'Completed';
+                    dateCard.querySelector('span:first-child').textContent = 'Status';
+                    venueCard.style.display = 'none';
+                    infoDate.textContent = 'Completed';
+                    infoVenue.textContent = '';
+                    infoVenue.style.display = 'none';
+                } else {
+                    displayDate.textContent = data.date;
+                    displayVenue.textContent = data.venue;
+                    dateCard.querySelector('span:first-child').textContent = 'Date';
+                    venueCard.style.display = '';
+                    infoDate.textContent = data.date;
+                    infoVenue.textContent = data.venue;
+                    infoVenue.style.display = '';
+                }
+
                 mainVideo.pause();
                 videoSource.setAttribute('src', data.video);
                 const ext = data.video.split('.').pop().toLowerCase();
@@ -543,8 +564,8 @@
 
                 // Update fixed info card in the top-left of the map
                 document.getElementById('infoCity').textContent  = data.name;
-                document.getElementById('infoDate').textContent  = data.date;
-                document.getElementById('infoVenue').textContent = data.venue;
+                document.getElementById('infoDate').textContent  = isCompleted ? 'Completed' : data.date;
+                document.getElementById('infoVenue').textContent = isCompleted ? '' : data.venue;
             }, 250);
         }
 
