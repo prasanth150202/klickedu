@@ -600,9 +600,9 @@
         <div class="container">
             <div class="section-header">
                 <h2>Next Live Session Starts In</h2>
-                <p>We host sessions every Saturday & Sunday. Pick a slot that fits your schedule.</p>
+                <p>We host sessions every Sunday. Pick a slot that fits your schedule.</p>
                 <div style="text-align: center;">
-                    <span class="schedule-time-badge"><i class="fa-solid fa-clock"></i> Sat & Sun, 5:00 PM - 6:00 PM</span>
+                    <span class="schedule-time-badge"><i class="fa-solid fa-clock"></i> Sunday, 7:00 PM - 8:00 PM</span>
                 </div>
             </div>
 
@@ -900,15 +900,15 @@ document.getElementById('leadForm').addEventListener('submit', async (e) => {
         }
 
         // Countdown Timer Logic
-        // Set to next Saturday at 5 PM
-        function getNextSaturday() {
+        // Set to next Sunday at 7 PM
+        function getNextSunday() {
             let d = new Date();
-            d.setDate(d.getDate() + (6 - d.getDay() + 7) % 7);
-            d.setHours(17, 0, 0, 0); // 5 PM
+            d.setDate(d.getDate() + (7 - d.getDay()) % 7);
+            d.setHours(19, 0, 0, 0); // 7 PM
             return d.getTime();
         }
 
-        const countDownDate = getNextSaturday();
+        const countDownDate = getNextSunday();
 
         const x = setInterval(function() {
             const now = new Date().getTime();
