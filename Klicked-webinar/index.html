@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klick Edu | NEET Success Webinar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="Assets/logo2.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2e1065; /* Deep Purple */
+            --accent: #a855f7; /* Purple 500 */
+            --accent-pink: #ec4899; /* Pink 500 */
+            --accent-blue: #38bdf8; /* Light Blue 400 */
+            --accent-hover: #9333ea;
+            --gradient-main: linear-gradient(135deg, var(--accent-pink), var(--accent), var(--accent-blue));
+            --gradient-soft: linear-gradient(135deg, #fce7f3, #f3e8ff, #e0f2fe);
+            --text-main: #334155;
+            --text-light: #64748b;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+            --glass-bg: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.5);
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 25px -5px rgba(168, 85, 247, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            overflow-x: hidden;
+        }
+
+        /* Reusable UI */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--gradient-main);
+            background-size: 200% 200%;
+            color: var(--white);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 15px -3px rgba(168, 85, 247, 0.35);
+        }
+
+        .btn:hover {
+            background-position: 100% 50%;
+            transform: translateY(-2px);
+            box-shadow: 0 20px 25px -5px rgba(236, 72, 153, 0.4);
+        }
+
+        .btn-highlight {
+            font-size: 1.15rem;
+            padding: 1.25rem 3rem;
+            animation: pulse-glow 2.2s infinite;
+        }
+
+        .btn-highlight:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% {
+                box-shadow: 0 10px 20px -5px rgba(236, 72, 153, 0.45), 0 0 0 0 rgba(236, 72, 153, 0.35);
+            }
+            50% {
+                box-shadow: 0 10px 25px -5px rgba(236, 72, 153, 0.6), 0 0 0 12px rgba(236, 72, 153, 0);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .btn-highlight { animation: none; }
+        }
+
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Navigation */
+        nav {
+            padding: 1.5rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 8.5rem 0 4rem 0;
+            min-height: auto;
+            display: flex;
+            align-items: center;
+            background: radial-gradient(circle at top right, #fce7f3 0%, #f3e8ff 45%, #e0f2fe 100%);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto;
+            column-gap: 4rem;
+            row-gap: 1.25rem;
+        }
+
+        .hero-text { grid-column: 1; grid-row: 1; }
+        .hero-cta { grid-column: 1; grid-row: 2; }
+        .hero-image {
+            grid-column: 2;
+            grid-row: 1 / span 2;
+            align-self: center;
+        }
+
+        .tagline {
+            display: inline-block;
+            background: var(--gradient-soft);
+            color: var(--accent-hover);
+            padding: 0.4rem 0.9rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .hero h1 {
+            font-size: 2.75rem;
+            line-height: 1.2;
+            color: var(--primary);
+            margin-bottom: 1.25rem;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .hook-box {
+            border-left: 4px solid;
+            border-image: var(--gradient-main) 1;
+            padding-left: 1.25rem;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            font-size: 0.95rem;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        /* Split Section: The Reality */
+        .section-padding { padding: 6rem 0; }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .table-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .table-row:last-child { border: none; }
+
+        /* Schedule & Countdown */
+        .schedule-section { background: linear-gradient(135deg, #831843, #581c87, #0c4a6e); color: var(--white); }
+        .schedule-section h2 { color: var(--white); }
+        .schedule-section p { color: #cbd5e1; }
+        
+        .timer-container {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        .time-box {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            min-width: 100px;
+        }
+
+        .time-box span {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 800;
+        }
+
+        .time-box label {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+        }
+
+        .schedule-time-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            color: #1f2937;
+            font-weight: 800;
+            font-size: 1.1rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 999px;
+            margin-top: 1rem;
+            box-shadow: 0 8px 20px rgba(249, 115, 22, 0.35);
+        }
+
+        /* FAQ Accordion */
+        .faq-item {
+            background: var(--white);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+        }
+
+        .faq-btn {
+            width: 100%;
+            text-align: left;
+            padding: 1.5rem;
+            background: none;
+            border: none;
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--primary);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .faq-content {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Modal / Lead Pop-up */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+        }
+
+        .modal-content {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 560px;
+            position: relative;
+            transform: scale(0.95);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        @media (max-width: 480px) {
+            .form-row { grid-template-columns: 1fr; }
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 1.5rem; right: 1.5rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-light);
+        }
+
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group input {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        /* Footer */
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 2.5rem;
+            text-align: left;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand { grid-column: span 3; }
+        .footer-col-courses { grid-column: span 2; }
+        .footer-col-address { grid-column: span 4; }
+        .footer-col-network { grid-column: span 3; }
+
+        .footer-logo { height: 60px; margin-bottom: 1.5rem; }
+
+        .footer-tagline {
+            font-size: 0.875rem;
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-contact {
+            margin-top: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .footer-contact a {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-contact a:hover { color: var(--accent-pink); }
+        .footer-contact i { color: var(--accent-pink); width: 16px; }
+
+        .footer-heading {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1.25rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover { color: var(--accent-pink); }
+
+        .address-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .address-block h5 {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .address-block h5 i { color: var(--accent-pink); }
+
+        .address-block p {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            line-height: 1.6;
+            padding-left: 1.4rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .network-group { margin-bottom: 1.25rem; }
+
+        .network-group h5 {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .network-group ul {
+            list-style: disc;
+            padding-left: 1.2rem;
+            font-size: 0.75rem;
+            color: var(--text-light);
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+            padding-top: 1.5rem;
+            font-size: 0.8rem;
+            color: var(--text-light);
+            text-align: center;
+        }
+
+        @media (max-width: 900px) {
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .footer-brand, .footer-col-address, .footer-col-network { grid-column: span 2; }
+        }
+
+        @media (max-width: 768px) {
+            .hero-grid, .comparison-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .hero-text { grid-column: 1; grid-row: 1; }
+            .hero-image { grid-column: 1; grid-row: 2; align-self: auto; }
+            .hero-cta { grid-column: 1; grid-row: 3; text-align: center; }
+            .hero { padding: 7rem 0 3rem 0; min-height: auto; }
+            .hero h1 { font-size: 2.25rem; }
+            .hero p { font-size: 1rem; }
+            .tagline { font-size: 0.8rem; padding: 0.4rem 0.9rem; }
+            .hook-box { font-size: 0.95rem; padding-left: 1rem; }
+            .hero-image .glass-card { height: 260px; padding: 1.5rem; }
+            .btn-highlight {
+                display: block;
+                width: 100%;
+                text-align: center;
+                font-size: 1rem;
+                padding: 1.1rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 1.85rem; }
+            .container { padding: 0 1.25rem; }
+        }
+
+        @media (max-width: 600px) {
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-brand, .footer-col-courses, .footer-col-address, .footer-col-network { grid-column: span 1; }
+            .address-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-content">
+            <div class="logo"><img style="height: 40px;" src="Assets/logo1.png" alt=""></div>
+            <button class="btn trigger-modal">Reserve Free Seat</button>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-text gsap-hero">
+                <span class="tagline">LIVE 60-MINUTE MASTERCLASS</span>
+                <h1>Your MBBS Dream Doesn't End with Your NEET Rank.</h1>
+
+                <div class="hook-box">
+                    "Every year, thousands of deserving NEET students lose their MBBS dream—not because they aren't capable, but because they don't know all the available options."
+                </div>
+
+                <p>Join our factual, transparent webinar designed for parents and aspirants. Discover the real data behind admissions and highly affordable, NMC-compliant global options.</p>
+            </div>
+
+            <div class="hero-image gsap-hero">
+                <div class="glass-card" style="height: 340px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #fce7f3, #f3e8ff, #e0f2fe);">
+                    <img src="Assets/1.webp" alt="Webinar Illustration" style="max-width: 100%; max-height: 100%;">
+                </div>
+            </div>
+
+            <div class="hero-cta gsap-hero">
+                <button class="btn btn-highlight trigger-modal">Secure Your Free Seat Now</button>
+                <p style="font-size: 0.875rem; margin-top: 1rem; color: var(--text-light);">⏳ Only 45 seats left for this weekend.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-header gsap-fade">
+                <h2>The Reality vs. The Smart Alternative</h2>
+                <p>Understanding the data before risking your financial future.</p>
+            </div>
+
+            <div class="comparison-grid">
+                <div class="glass-card gsap-card">
+                    <h3 style="margin-bottom: 1.5rem; color: var(--primary); font-size: 1.5rem;">High-Cost Private Ecosystem</h3>
+                    <div class="table-row">
+                        <strong>Total Budget</strong>
+                        <span style="color: #ef4444; font-weight: 700;">₹70L - ₹1.5 Crore</span>
+                    </div>
+                    <div class="table-row">
+                        <strong>Competition</strong>
+                        <span>Highly Competitive</span>
+                    </div>
+                    <div class="table-row">
+                        <strong>Availability</strong>
+                        <span>Restricted by Budget</span>
+                    </div>
+                    <div class="table-row">
+                        <strong>Hidden Fees</strong>
+                        <span>Frequent Capitation</span>
+                    </div>
+                </div>
+
+                <div class="glass-card gsap-card" style="border: 2px solid transparent; background-image: linear-gradient(var(--glass-bg), var(--glass-bg)), var(--gradient-main); background-origin: border-box; background-clip: padding-box, border-box;">
+                    <h3 style="margin-bottom: 1.5rem; color: var(--accent); font-size: 1.5rem;">Affordable Global MBBS</h3>
+                    <div class="table-row">
+                        <strong>Total Budget</strong>
+                        <span style="color: #10b981; font-weight: 700;">₹25L - ₹45L</span>
+                    </div>
+                    <div class="table-row">
+                        <strong>Global Recognition</strong>
+                        <span>100% NMC / WHO Approved</span>
+                    </div>
+                    <div class="table-row">
+                        <strong>Comfort</strong>
+                        <span>Safe Hostels & Indian Mess</span>
+                    </div>
+                    <div class="table-row">
+                        <strong>Support</strong>
+                        <span>End-to-End Visa & Loan Help</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem;">
+                <button class="btn trigger-modal">See If You Qualify For Better Options</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding schedule-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Next Live Session Starts In</h2>
+                <p>We host sessions every Saturday & Sunday. Pick a slot that fits your schedule.</p>
+                <div style="text-align: center;">
+                    <span class="schedule-time-badge"><i class="fa-solid fa-clock"></i> Sat & Sun, 5:00 PM - 6:00 PM</span>
+                </div>
+            </div>
+
+            <div class="timer-container">
+                <div class="time-box">
+                    <span id="days">00</span>
+                    <label>Days</label>
+                </div>
+                <div class="time-box">
+                    <span id="hours">00</span>
+                    <label>Hours</label>
+                </div>
+                <div class="time-box">
+                    <span id="minutes">00</span>
+                    <label>Minutes</label>
+                </div>
+                <div class="time-box">
+                    <span id="seconds">00</span>
+                    <label>Seconds</label>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <button class="btn trigger-modal" style="background: var(--white); color: var(--primary);">Claim Free Ticket + Bonuses</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Addressing the critical questions every parent asks.</p>
+            </div>
+
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div class="faq-item">
+                    <button class="faq-btn">Is studying medical education abroad completely safe for girl students? <span>+</span></button>
+                    <div class="faq-content">
+                        <p style="padding-bottom: 1.5rem;">Absolutely. The universities we partner with feature 24/7 security, biometric access control at hostels, and dedicated student coordinators ensuring safe local environments.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-btn">Will proper Indian food be available? <span>+</span></button>
+                    <div class="faq-content">
+                        <p style="padding-bottom: 1.5rem;">Yes. All shortlisted university hubs feature specialized Indian kitchens and mess halls staffed by Indian cooks offering both vegetarian and non-vegetarian options.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-btn">Are these international degrees valid to practice in India? <span>+</span></button>
+                    <div class="faq-content">
+                        <p style="padding-bottom: 1.5rem;">Yes, every option we recommend strictly adheres to the latest NMC guidelines, ensuring your child is fully eligible to write the NExT/FMGE exam to practice in India.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer style="background: var(--bg-light); color: var(--text-main); padding: 42px 0 2rem 0; border-top: 1px solid rgba(0,0,0,0.06);">
+        <div class="container">
+            <div class="footer-grid">
+
+                <div class="footer-brand">
+                    <img class="footer-logo" style="height: 100px !important; margin-bottom:0px;" src="Assets/logo2.png" alt="Klick Edu Logo">
+                    <p class="footer-tagline">Student empowering platform</p>
+                    <p class="footer-tagline">Custom-made education solutions for the New Generation</p>
+                    <div class="footer-contact">
+                        <a href="tel:+918111996000"><i class="fa-solid fa-phone"></i> +91 8111 99 6000</a>
+                        <a href="mailto:hello@klickedu.com"><i class="fa-regular fa-envelope"></i> hello@klickedu.com</a>
+                    </div>
+                </div>
+
+                <div class="footer-col-courses">
+                    <h4 class="footer-heading">Courses</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">MBBS Abroad</a></li>
+                        <li><a href="#">Aviation</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col-address">
+                    <h4 class="footer-heading">Address</h4>
+                    <div class="address-grid">
+                        <div>
+                            <div class="address-block">
+                                <h5><i class="fa-solid fa-location-dot"></i> Kerala :</h5>
+                                <p>KlickEdu, 1st Floor,<br>MS Building, behind<br>New Theatre,<br>Aristo, Thampanoor,<br>Thiruvananthapuram,<br>Kerala, 695012</p>
+                            </div>
+                            <div class="address-block">
+                                <h5><i class="fa-solid fa-location-dot"></i> Coimbatore :</h5>
+                                <p>DR. No.1270BCD,<br>2nd floor, SB Classic<br>Towers,<br>Trichy Rd, Nadar<br>Colony, Race Course<br>Area, Coimbatore<br>Tamil Nadu, 641018</p>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="address-block">
+                                <h5><i class="fa-solid fa-location-dot"></i> Vadodara :</h5>
+                                <p>Indraprasth<br>Complex, 1st Floor,<br>Nizampura Main<br>Road, Vadodara,<br>Gujarat, 390002.<br>GST Number :<br>24AAECD6473F1ZQ</p>
+                            </div>
+                            <div class="address-block">
+                                <h5><i class="fa-solid fa-location-dot"></i> Agra :</h5>
+                                <p>Shop no -1, First<br>Floor,<br>Vinayak Mall,<br>Deewani crossing<br>(LOTUS Hospital<br>Building)<br>M.G. Road, Agra<br>282002 (U.P)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-col-network">
+                    <h4 class="footer-heading">Our Network Offices</h4>
+                    <div class="network-group">
+                        <h5>Overseas :</h5>
+                        <ul>
+                            <li>Kathmandu, Nepal</li>
+                            <li>Dhaka, Bangladesh</li>
+                            <li>Colombo, Sri Lanka</li>
+                        </ul>
+                    </div>
+                    <div class="network-group">
+                        <h5>India :</h5>
+                        <ul>
+                            <li>Rajasthan</li>
+                            <li>Delhi -NCR</li>
+                            <li>Uttar Pradesh</li>
+                            <li>Madhya Pradesh</li>
+                            <li>Karnataka</li>
+                            <li>Gujarat</li>
+                            <li>Maharashtra</li>
+                            <li>Punjab</li>
+                            <li>Himachal Pradesh</li>
+                            <li>Haryana</li>
+                            <li>North East States of India</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                © 2026 All Rights Reserved by DSA Global Pvt Ltd, Parent Company of KlickEdu.
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal-overlay" id="leadModal">
+        <div class="modal-content">
+            <button class="close-btn" id="closeModal">&times;</button>
+            <h2 style="color: var(--primary); margin-bottom: 0.5rem;">Reserve Your Free Seat</h2>
+            <p style="color: var(--text-light); margin-bottom: 2rem;">Enter your details to receive the webinar link via WhatsApp.</p>
+            
+            <form id="leadForm">
+    <div class="form-row">
+        <div class="form-group">
+            <input type="text" id="leadName" placeholder="Student or Parent Name" required>
+        </div>
+        <div class="form-group">
+            <input type="tel" id="leadPhone" placeholder="WhatsApp Number" required>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group">
+            <input type="email" id="leadEmail" placeholder="Email Address" required>
+        </div>
+        <div class="form-group">
+            <input type="text" id="leadCity" placeholder="City" required>
+        </div>
+    </div>
+    <div class="form-group">
+        <input type="text" id="leadScore" placeholder="Expected/Actual NEET Score">
+    </div>
+    <button type="submit" class="btn" style="width: 100%;">Confirm My Registration</button>
+    <p style="font-size: 0.75rem; text-align: center; margin-top: 1rem; color: var(--text-light);">We respect your privacy. No spam.</p>
+</form>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script>
+        // Register ScrollTrigger
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Initial Load Animation (Hero)
+        const tl = gsap.timeline();
+        tl.from(".nav-content", { y: -20, opacity: 0, duration: 0.8, ease: "power3.out" })
+          .from(".gsap-hero", { y: 30, opacity: 0, duration: 0.8, stagger: 0.2, ease: "power3.out" }, "-=0.4");
+
+        // Scroll Animations (Glassmorphism Cards)
+        gsap.from(".gsap-fade", {
+            scrollTrigger: { trigger: ".section-padding", start: "top 80%" },
+            y: 30, opacity: 0, duration: 0.8
+        });
+
+        gsap.from(".gsap-card", {
+            scrollTrigger: { trigger: ".comparison-grid", start: "top 80%" },
+            y: 50, opacity: 0, duration: 0.8, stagger: 0.2, ease: "back.out(1.2)"
+        });
+
+        // FAQ Accordion Logic
+        const faqBtns = document.querySelectorAll('.faq-btn');
+        faqBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.classList.toggle('active');
+                const content = this.nextElementSibling;
+                const icon = this.querySelector('span');
+                
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                    icon.textContent = '+';
+                } else {
+                    // Close others
+                    document.querySelectorAll('.faq-content').forEach(c => c.style.maxHeight = null);
+                    document.querySelectorAll('.faq-btn span').forEach(i => i.textContent = '+');
+                    
+                    content.style.maxHeight = content.scrollHeight + "px";
+                    icon.textContent = '-';
+                }
+            });
+        });
+
+        // Modal Logic
+        const modal = document.getElementById('leadModal');
+        const triggerBtns = document.querySelectorAll('.trigger-modal');
+        const closeBtn = document.getElementById('closeModal');
+        const modalContent = document.querySelector('.modal-content');
+
+        triggerBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                modal.style.display = 'flex';
+                // GSAP Modal Entry
+                gsap.to(modal, { opacity: 1, duration: 0.3 });
+                gsap.to(modalContent, { scale: 1, duration: 0.4, ease: "back.out(1.5)" });
+            });
+        });
+
+        closeBtn.addEventListener('click', closeModalFunc);
+        modal.addEventListener('click', (e) => {
+            if(e.target === modal) closeModalFunc();
+        });
+
+
+        // Form Submit & App Script Integration
+document.getElementById('leadForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    // PASTE YOUR GOOGLE APPS SCRIPT URL HERE
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbz-2WrRH2GRuTakrrgvUzad61vrlptE1BKASKxVmOWpvHSfbDNt1alRP3BHsufBBTi-MQ/exec';
+    
+    const submitBtn = e.target.querySelector('button[type="submit"]');
+    const originalText = submitBtn.innerText;
+    
+    // Change button text to show loading state
+    submitBtn.innerText = 'Submitting...';
+    submitBtn.disabled = true;
+
+    // Gather form data based on the IDs we added
+    const formData = {
+        name: document.getElementById('leadName').value,
+        whatsapp: document.getElementById('leadPhone').value,
+        email: document.getElementById('leadEmail').value,
+        city: document.getElementById('leadCity').value,
+        neetScore: document.getElementById('leadScore').value
+    };
+
+    try {
+        await fetch(scriptURL, {
+            method: 'POST',
+            mode: 'no-cors', // Important: bypasses CORS blocks for Google Scripts
+            headers: {
+                'Content-Type': 'text/plain;charset=utf-8', // avoids no-cors header restrictions; GAS still parses the raw JSON body
+            },
+            body: JSON.stringify(formData)
+        });
+
+        // Success: show it on the button itself, then close
+        submitBtn.innerText = 'Submitted ✓';
+
+        setTimeout(() => {
+            e.target.reset();
+            closeModalFunc();
+            submitBtn.innerText = originalText;
+            submitBtn.disabled = false;
+        }, 1500);
+
+    } catch (error) {
+        console.error('Error!', error.message);
+        submitBtn.innerText = 'Failed, Try Again';
+        submitBtn.disabled = false;
+        setTimeout(() => { submitBtn.innerText = originalText; }, 2500);
+    }
+});
+
+        function closeModalFunc() {
+            gsap.to(modalContent, { scale: 0.95, duration: 0.3 });
+            gsap.to(modal, { opacity: 0, duration: 0.3, onComplete: () => modal.style.display = 'none' });
+        }
+
+        // Countdown Timer Logic
+        // Set to next Saturday at 5 PM
+        function getNextSaturday() {
+            let d = new Date();
+            d.setDate(d.getDate() + (6 - d.getDay() + 7) % 7);
+            d.setHours(17, 0, 0, 0); // 5 PM
+            return d.getTime();
+        }
+
+        const countDownDate = getNextSaturday();
+
+        const x = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerHTML = days < 10 ? '0' + days : days;
+            document.getElementById("hours").innerHTML = hours < 10 ? '0' + hours : hours;
+            document.getElementById("minutes").innerHTML = minutes < 10 ? '0' + minutes : minutes;
+            document.getElementById("seconds").innerHTML = seconds < 10 ? '0' + seconds : seconds;
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.querySelector(".timer-container").innerHTML = "<h2>Session is Live!</h2>";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
