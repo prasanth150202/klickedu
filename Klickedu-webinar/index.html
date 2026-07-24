@@ -324,10 +324,6 @@
             gap: 1rem;
         }
 
-        @media (max-width: 480px) {
-            .form-row { grid-template-columns: 1fr; }
-        }
-
         .close-btn {
             position: absolute;
             top: 1.5rem; right: 1.5rem;
@@ -469,12 +465,18 @@
             text-align: center;
         }
 
-        @media (max-width: 900px) {
-            .footer-grid { grid-template-columns: 1fr 1fr; }
-            .footer-brand, .footer-col-address, .footer-col-network { grid-column: span 2; }
-        }
-
+        /* ---------------------------------
+           MOBILE OPTIMIZATIONS (< 768px)
+        ---------------------------------- */
         @media (max-width: 768px) {
+            .section-padding { padding: 4rem 0; } /* Reduce huge spacing */
+            
+            /* Nav Fixes */
+            nav { padding: 1rem 0; }
+            .logo img { height: 32px !important; }
+            .nav-content .btn { padding: 0.6rem 1.2rem; font-size: 0.85rem; }
+
+            /* Hero Fixes */
             .hero-grid, .comparison-grid { grid-template-columns: 1fr; gap: 2rem; }
             .hero-text { grid-column: 1; grid-row: 1; }
             .hero-image { grid-column: 1; grid-row: 2; align-self: auto; }
@@ -485,6 +487,7 @@
             .tagline { font-size: 0.8rem; padding: 0.4rem 0.9rem; }
             .hook-box { font-size: 0.95rem; padding-left: 1rem; }
             .hero-image .glass-card { height: 260px; padding: 1.5rem; }
+            
             .btn-highlight {
                 display: block;
                 width: 100%;
@@ -492,11 +495,38 @@
                 font-size: 1rem;
                 padding: 1.1rem 1.5rem;
             }
+
+            /* Timer layout switch to row wrapping */
+            .timer-container { flex-wrap: wrap; gap: 1rem; }
+            .time-box { min-width: 120px; padding: 1rem; }
+            .time-box span { font-size: 2rem; }
+            .schedule-time-badge { font-size: 0.95rem; padding: 0.6rem 1.2rem; }
+
+            /* Footer Fixes */
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .footer-brand, .footer-col-address, .footer-col-network { grid-column: span 2; }
         }
 
+        /* ---------------------------------
+           MOBILE OPTIMIZATIONS (< 480px)
+        ---------------------------------- */
         @media (max-width: 480px) {
             .hero h1 { font-size: 1.85rem; }
             .container { padding: 0 1.25rem; }
+            .form-row { grid-template-columns: 1fr; }
+
+            /* Timer 2x2 Grid for smaller screens */
+            .timer-container { gap: 0.5rem; }
+            .time-box { 
+                min-width: 45%; 
+                flex-grow: 1; 
+                padding: 0.75rem; 
+            }
+            .time-box span { font-size: 1.5rem; }
+            .time-box label { font-size: 0.7rem; }
+
+            /* Modal Padding Adjustments */
+            .modal-content { padding: 2rem 1.5rem; }
         }
 
         @media (max-width: 600px) {
@@ -642,29 +672,28 @@
             <div class="glass-card gsap-fade" style="max-width: 900px; margin: 0 auto; background: var(--bg-light);">
                 <h3 style="color: var(--primary); font-size: 1.5rem; text-align: center; margin-bottom: 2rem;">Inside the Community, You'll Get</h3>
                 
-              <ul style="list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 2.5rem; padding: 0 1rem;">
-    <li style="display: flex; align-items: center; gap: 1rem; font-weight: 600; color: var(--text-main);">
-        <i class="fa-solid fa-graduation-cap" style="font-size: 1.25rem; color: var(--accent-pink); width: 30px; text-align: center;"></i> FREE LIVE Webinar Reminders
-    </li>
-    <li style="display: flex; align-items: center; gap: 1rem; font-weight: 600; color: var(--text-main);">
-        <i class="fa-regular fa-compass" style="font-size: 1.25rem; color: var(--accent-pink); width: 30px; text-align: center;"></i> MBBS Abroad Admission Updates
-    </li>
-    <li style="display: flex; align-items: center; gap: 1rem; font-weight: 600; color: var(--text-main);">
-        <i class="fa-regular fa-hospital" style="font-size: 1.25rem; color: var(--accent-pink); width: 30px; text-align: center;"></i> Trusted University Opportunities
-    </li>
-    <li style="display: flex; align-items: center; gap: 1rem; font-weight: 600; color: var(--text-main);">
-        <i class="fa-regular fa-file-lines" style="font-size: 1.25rem; color: var(--accent-pink); width: 30px; text-align: center;"></i> Visa & Admission Guidance
-    </li>
-    <li style="display: flex; align-items: center; gap: 1rem; font-weight: 600; color: var(--text-main);">
-        <i class="fa-solid fa-stethoscope" style="font-size: 1.25rem; color: var(--accent-pink); width: 30px; text-align: center;"></i> National Exit Test (NExT) Updates
-    </li>
-    <li style="display: flex; align-items: center; gap: 1rem; font-weight: 600; color: var(--text-main);">
-        <i class="fa-regular fa-bell" style="font-size: 1.25rem; color: var(--accent-pink); width: 30px; text-align: center;"></i> Important Announcements & Key Deadlines
-    </li>
-</ul>
+                <ul style="list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 2.5rem; padding: 0 1rem;">
+                    <li style="display: flex; align-items: center; gap: 1rem; font-weight: 600; color: var(--text-main);">
+                        <i class="fa-solid fa-graduation-cap" style="font-size: 1.25rem; color: var(--accent-pink); width: 30px; text-align: center;"></i> FREE LIVE Webinar Reminders
+                    </li>
+                    <li style="display: flex; align-items: center; gap: 1rem; font-weight: 600; color: var(--text-main);">
+                        <i class="fa-regular fa-compass" style="font-size: 1.25rem; color: var(--accent-pink); width: 30px; text-align: center;"></i> MBBS Abroad Admission Updates
+                    </li>
+                    <li style="display: flex; align-items: center; gap: 1rem; font-weight: 600; color: var(--text-main);">
+                        <i class="fa-regular fa-hospital" style="font-size: 1.25rem; color: var(--accent-pink); width: 30px; text-align: center;"></i> Trusted University Opportunities
+                    </li>
+                    <li style="display: flex; align-items: center; gap: 1rem; font-weight: 600; color: var(--text-main);">
+                        <i class="fa-regular fa-file-lines" style="font-size: 1.25rem; color: var(--accent-pink); width: 30px; text-align: center;"></i> Visa & Admission Guidance
+                    </li>
+                    <li style="display: flex; align-items: center; gap: 1rem; font-weight: 600; color: var(--text-main);">
+                        <i class="fa-solid fa-stethoscope" style="font-size: 1.25rem; color: var(--accent-pink); width: 30px; text-align: center;"></i> National Exit Test (NExT) Updates
+                    </li>
+                    <li style="display: flex; align-items: center; gap: 1rem; font-weight: 600; color: var(--text-main);">
+                        <i class="fa-regular fa-bell" style="font-size: 1.25rem; color: var(--accent-pink); width: 30px; text-align: center;"></i> Important Announcements & Key Deadlines
+                    </li>
+                </ul>
 
                 <div style="text-align: center;">
-                    <!-- REPLACE the href below with your actual WhatsApp Group link -->
                     <a href="https://chat.whatsapp.com/J9aKTQXNk3r8FtfombdDmT?s=cl&p=i&ilr=0" target="_blank" class="btn" style="background: #25D366; box-shadow: 0 10px 15px -3px rgba(37, 211, 102, 0.35); text-decoration: none; display: inline-flex; align-items: center; gap: 0.75rem;">
                         <i class="fa-brands fa-whatsapp" style="font-size: 1.4rem;"></i>  Join the Official WhatsApp Community
                     </a>
@@ -795,28 +824,28 @@
             <p style="color: var(--text-light); margin-bottom: 2rem;">Enter your details to receive the webinar link via WhatsApp.</p>
             
             <form id="leadForm">
-    <div class="form-row">
-        <div class="form-group">
-            <input type="text" id="leadName" placeholder="Student or Parent Name" required>
-        </div>
-        <div class="form-group">
-            <input type="tel" id="leadPhone" placeholder="WhatsApp Number" required>
-        </div>
-    </div>
-    <div class="form-row">
-        <div class="form-group">
-            <input type="email" id="leadEmail" placeholder="Email Address" required>
-        </div>
-        <div class="form-group">
-            <input type="text" id="leadCity" placeholder="City" required>
-        </div>
-    </div>
-    <div class="form-group">
-        <input type="text" id="leadScore" placeholder="Expected/Actual NEET Score">
-    </div>
-    <button type="submit" class="btn" style="width: 100%;">Confirm My Registration</button>
-    <p style="font-size: 0.75rem; text-align: center; margin-top: 1rem; color: var(--text-light);">We respect your privacy. No spam.</p>
-</form>
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="text" id="leadName" placeholder="Student or Parent Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="leadPhone" placeholder="WhatsApp Number" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="email" id="leadEmail" placeholder="Email Address" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="leadCity" placeholder="City" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="leadScore" placeholder="Expected/Actual NEET Score">
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Confirm My Registration</button>
+                <p style="font-size: 0.75rem; text-align: center; margin-top: 1rem; color: var(--text-light);">We respect your privacy. No spam.</p>
+            </form>
         </div>
     </div>
 
@@ -887,55 +916,55 @@
 
 
         // Form Submit & App Script Integration
-document.getElementById('leadForm').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    
-    // PASTE YOUR GOOGLE APPS SCRIPT URL HERE
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbz-2WrRH2GRuTakrrgvUzad61vrlptE1BKASKxVmOWpvHSfbDNt1alRP3BHsufBBTi-MQ/exec';
-    
-    const submitBtn = e.target.querySelector('button[type="submit"]');
-    const originalText = submitBtn.innerText;
-    
-    // Change button text to show loading state
-    submitBtn.innerText = 'Submitting...';
-    submitBtn.disabled = true;
+        document.getElementById('leadForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // PASTE YOUR GOOGLE APPS SCRIPT URL HERE
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbz-2WrRH2GRuTakrrgvUzad61vrlptE1BKASKxVmOWpvHSfbDNt1alRP3BHsufBBTi-MQ/exec';
+            
+            const submitBtn = e.target.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerText;
+            
+            // Change button text to show loading state
+            submitBtn.innerText = 'Submitting...';
+            submitBtn.disabled = true;
 
-    // Gather form data based on the IDs we added
-    const formData = {
-        name: document.getElementById('leadName').value,
-        whatsapp: document.getElementById('leadPhone').value,
-        email: document.getElementById('leadEmail').value,
-        city: document.getElementById('leadCity').value,
-        neetScore: document.getElementById('leadScore').value
-    };
+            // Gather form data based on the IDs we added
+            const formData = {
+                name: document.getElementById('leadName').value,
+                whatsapp: document.getElementById('leadPhone').value,
+                email: document.getElementById('leadEmail').value,
+                city: document.getElementById('leadCity').value,
+                neetScore: document.getElementById('leadScore').value
+            };
 
-    try {
-        await fetch(scriptURL, {
-            method: 'POST',
-            mode: 'no-cors', // Important: bypasses CORS blocks for Google Scripts
-            headers: {
-                'Content-Type': 'text/plain;charset=utf-8', // avoids no-cors header restrictions; GAS still parses the raw JSON body
-            },
-            body: JSON.stringify(formData)
+            try {
+                await fetch(scriptURL, {
+                    method: 'POST',
+                    mode: 'no-cors', // Important: bypasses CORS blocks for Google Scripts
+                    headers: {
+                        'Content-Type': 'text/plain;charset=utf-8', // avoids no-cors header restrictions; GAS still parses the raw JSON body
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                // Success: show it on the button itself, then close
+                submitBtn.innerText = 'Submitted ✓';
+
+                setTimeout(() => {
+                    e.target.reset();
+                    closeModalFunc();
+                    submitBtn.innerText = originalText;
+                    submitBtn.disabled = false;
+                }, 1500);
+
+            } catch (error) {
+                console.error('Error!', error.message);
+                submitBtn.innerText = 'Failed, Try Again';
+                submitBtn.disabled = false;
+                setTimeout(() => { submitBtn.innerText = originalText; }, 2500);
+            }
         });
-
-        // Success: show it on the button itself, then close
-        submitBtn.innerText = 'Submitted ✓';
-
-        setTimeout(() => {
-            e.target.reset();
-            closeModalFunc();
-            submitBtn.innerText = originalText;
-            submitBtn.disabled = false;
-        }, 1500);
-
-    } catch (error) {
-        console.error('Error!', error.message);
-        submitBtn.innerText = 'Failed, Try Again';
-        submitBtn.disabled = false;
-        setTimeout(() => { submitBtn.innerText = originalText; }, 2500);
-    }
-});
 
         function closeModalFunc() {
             gsap.to(modalContent, { scale: 0.95, duration: 0.3 });
