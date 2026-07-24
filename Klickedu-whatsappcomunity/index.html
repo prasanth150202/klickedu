@@ -5,8 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Klick Edu | NEET Success Webinar</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="Assets/logo2.png">
+    <link rel="icon" type="image/png" href="/assets/logo2.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- ADDED: Tailwind CSS for the Gallery Section -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandPrimary: '#a855f7', /* Matches your --accent */
+                        brandDark: '#2e1065',    /* Matches your --primary */
+                    }
+                }
+            }
+        }
+    </script>
+
     <style>
         :root {
             --primary: #2e1065; /* Deep Purple */
@@ -67,29 +83,6 @@
             box-shadow: 0 20px 25px -5px rgba(236, 72, 153, 0.4);
         }
 
-        .btn-highlight {
-            font-size: 1.15rem;
-            padding: 1.25rem 3rem;
-            animation: pulse-glow 2.2s infinite;
-        }
-
-        .btn-highlight:hover {
-            animation-play-state: paused;
-        }
-
-        @keyframes pulse-glow {
-            0%, 100% {
-                box-shadow: 0 10px 20px -5px rgba(236, 72, 153, 0.45), 0 0 0 0 rgba(236, 72, 153, 0.35);
-            }
-            50% {
-                box-shadow: 0 10px 25px -5px rgba(236, 72, 153, 0.6), 0 0 0 12px rgba(236, 72, 153, 0);
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            .btn-highlight { animation: none; }
-        }
-
         .glass-card {
             background: var(--glass-bg);
             backdrop-filter: blur(12px);
@@ -124,69 +117,6 @@
             color: var(--primary);
         }
 
-        /* Hero Section */
-        .hero {
-            padding: 8.5rem 0 4rem 0;
-            min-height: auto;
-            display: flex;
-            align-items: center;
-            background: radial-gradient(circle at top right, #fce7f3 0%, #f3e8ff 45%, #e0f2fe 100%);
-        }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: auto auto;
-            column-gap: 4rem;
-            row-gap: 1.25rem;
-        }
-
-        .hero-text { grid-column: 1; grid-row: 1; }
-        .hero-cta { grid-column: 1; grid-row: 2; }
-        .hero-image {
-            grid-column: 2;
-            grid-row: 1 / span 2;
-            align-self: center;
-        }
-
-        .tagline {
-            display: inline-block;
-            background: var(--gradient-soft);
-            color: var(--accent-hover);
-            padding: 0.4rem 0.9rem;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 0.8rem;
-            margin-bottom: 1.25rem;
-        }
-
-        .hero h1 {
-            font-size: 2.75rem;
-            line-height: 1.2;
-            color: var(--primary);
-            margin-bottom: 1.25rem;
-            font-weight: 800;
-        }
-
-        .hero p {
-            font-size: 1rem;
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-
-        .hook-box {
-            border-left: 4px solid;
-            border-image: var(--gradient-main) 1;
-            padding-left: 1.25rem;
-            margin-bottom: 1.5rem;
-            font-style: italic;
-            font-size: 0.95rem;
-            color: var(--primary);
-            font-weight: 500;
-        }
-
-        /* Split Section: The Reality */
         .section-padding { padding: 6rem 0; }
         
         .section-header {
@@ -198,69 +128,6 @@
             font-size: 2.5rem;
             color: var(--primary);
             margin-bottom: 1rem;
-        }
-
-        .comparison-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-        }
-
-        .table-row {
-            display: flex;
-            justify-content: space-between;
-            padding: 1rem 0;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-        }
-
-        .table-row:last-child { border: none; }
-
-        /* Schedule & Countdown */
-        .schedule-section { background: linear-gradient(135deg, #831843, #581c87, #0c4a6e); color: var(--white); }
-        .schedule-section h2 { color: var(--white); }
-        .schedule-section p { color: #cbd5e1; }
-        
-        .timer-container {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            margin: 2rem 0;
-        }
-
-        .time-box {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 1.5rem;
-            border-radius: 12px;
-            text-align: center;
-            min-width: 100px;
-        }
-
-        .time-box span {
-            display: block;
-            font-size: 2.5rem;
-            font-weight: 800;
-        }
-
-        .time-box label {
-            font-size: 0.875rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            opacity: 0.8;
-        }
-
-        .schedule-time-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
-            background: linear-gradient(135deg, #f59e0b, #f97316);
-            color: #1f2937;
-            font-weight: 800;
-            font-size: 1.1rem;
-            padding: 0.75rem 1.5rem;
-            border-radius: 999px;
-            margin-top: 1rem;
-            box-shadow: 0 8px 20px rgba(249, 115, 22, 0.35);
         }
 
         /* FAQ Accordion */
@@ -465,67 +332,19 @@
             text-align: center;
         }
 
-        /* ---------------------------------
-           MOBILE OPTIMIZATIONS (< 768px)
-        ---------------------------------- */
+        /* MOBILE OPTIMIZATIONS */
         @media (max-width: 768px) {
-            .section-padding { padding: 4rem 0; } /* Reduce huge spacing */
-            
-            /* Nav Fixes */
+            .section-padding { padding: 4rem 0; } 
             nav { padding: 1rem 0; }
             .logo img { height: 32px !important; }
             .nav-content .btn { padding: 0.6rem 1.2rem; font-size: 0.85rem; }
-
-            /* Hero Fixes */
-            .hero-grid, .comparison-grid { grid-template-columns: 1fr; gap: 2rem; }
-            .hero-text { grid-column: 1; grid-row: 1; }
-            .hero-image { grid-column: 1; grid-row: 2; align-self: auto; }
-            .hero-cta { grid-column: 1; grid-row: 3; text-align: center; }
-            .hero { padding: 7rem 0 3rem 0; min-height: auto; }
-            .hero h1 { font-size: 2.25rem; }
-            .hero p { font-size: 1rem; }
-            .tagline { font-size: 0.8rem; padding: 0.4rem 0.9rem; }
-            .hook-box { font-size: 0.95rem; padding-left: 1rem; }
-            .hero-image .glass-card { height: 260px; padding: 1.5rem; }
-            
-            .btn-highlight {
-                display: block;
-                width: 100%;
-                text-align: center;
-                font-size: 1rem;
-                padding: 1.1rem 1.5rem;
-            }
-
-            /* Timer layout switch to row wrapping */
-            .timer-container { flex-wrap: wrap; gap: 1rem; }
-            .time-box { min-width: 120px; padding: 1rem; }
-            .time-box span { font-size: 2rem; }
-            .schedule-time-badge { font-size: 0.95rem; padding: 0.6rem 1.2rem; }
-
-            /* Footer Fixes */
             .footer-grid { grid-template-columns: 1fr 1fr; }
             .footer-brand, .footer-col-address, .footer-col-network { grid-column: span 2; }
         }
 
-        /* ---------------------------------
-           MOBILE OPTIMIZATIONS (< 480px)
-        ---------------------------------- */
         @media (max-width: 480px) {
-            .hero h1 { font-size: 1.85rem; }
             .container { padding: 0 1.25rem; }
             .form-row { grid-template-columns: 1fr; }
-
-            /* Timer 2x2 Grid for smaller screens */
-            .timer-container { gap: 0.5rem; }
-            .time-box { 
-                min-width: 45%; 
-                flex-grow: 1; 
-                padding: 0.75rem; 
-            }
-            .time-box span { font-size: 1.5rem; }
-            .time-box label { font-size: 0.7rem; }
-
-            /* Modal Padding Adjustments */
             .modal-content { padding: 2rem 1.5rem; }
         }
 
@@ -538,129 +357,105 @@
 </head>
 <body>
 
-    <nav>
+     <nav>
         <div class="container nav-content">
-            <div class="logo"><img style="height: 40px;" src="Assets/logo1.png" alt=""></div>
+            <div class="logo">
+                <img style="height: 40px;" src="/assets/logo1.png" alt="Klick Edu">
+            </div>
             <button class="btn trigger-modal">Reserve Free Seat</button>
         </div>
     </nav>
 
-    <section class="hero">
-        <div class="container hero-grid">
-            <div class="hero-text gsap-hero">
-                <span class="tagline">LIVE 60-MINUTE MASTERCLASS</span>
-                <h1>Your MBBS Dream Doesn't End with Your NEET Rank.</h1>
-
-                <div class="hook-box">
-                    "Every year, thousands of deserving NEET students lose their MBBS dream—not because they aren't capable, but because they don't know all the available options."
+    <!-- GALLERY SECTION (Fixed paths) -->
+    <section id="gallery" class="py-4 mt-10 bg-white border-t border-gray-100 overflow-hidden">
+        <div style="padding-top: 70px;" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10 gs-reveal">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brandPrimary/10 text-brandPrimary text-xs font-bold mb-4 uppercase tracking-wider border border-brandPrimary/20">
+                    <span class="w-2 h-2 rounded-full bg-brandPrimary animate-pulse"></span> Past Expos
                 </div>
-
-                <p>Join our factual, transparent webinar designed for parents and aspirants. Discover the real data behind admissions and highly affordable, NMC-compliant global options.</p>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-brandDark mb-3 tracking-tight">Get your guidance from top delegates</h2>
+                <p class="text-black max-w-xl mx-auto text-sm font-medium leading-relaxed">
+                    Thousands of students have already attended our expos. Here's a glimpse from the ground.
+                </p>
             </div>
 
-            <div class="hero-image gsap-hero">
-                <div class="glass-card" style="height: 340px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #fce7f3, #f3e8ff, #e0f2fe);">
-                    <img src="Assets/1.webp" alt="Webinar Illustration" style="max-width: 100%; max-height: 100%;">
-                </div>
-            </div>
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-2 auto-rows-[160px] lg:auto-rows-[190px] gs-reveal">
+                <button class="gallery-item col-span-2 lg:col-span-2 lg:row-span-2 overflow-hidden rounded-2xl shadow-md hover:shadow-xl hover:brightness-110 transition-all duration-300 focus:outline-none" data-src="/assets/1.webp">
+                    <img src="/assets/1.webp" alt="Expo photo 1" class="w-full h-full object-cover block" loading="lazy" />
+                </button>
 
-            <div class="hero-cta gsap-hero">
-                <button class="btn btn-highlight trigger-modal">Secure Your Free Seat Now</button>
-                <p style="font-size: 0.875rem; margin-top: 1rem; color: var(--text-light);">⏳ Only 45 seats left for this weekend.</p>
+                <button class="gallery-item overflow-hidden rounded-2xl shadow-md hover:shadow-xl hover:brightness-110 transition-all duration-300 focus:outline-none" data-src="/assets/2.webp">
+                    <img src="/assets/2.webp" alt="Expo photo 2" class="w-full h-full object-cover block" loading="lazy" />
+                </button>
+
+                <button class="gallery-item overflow-hidden rounded-2xl shadow-md hover:shadow-xl hover:brightness-110 transition-all duration-300 focus:outline-none" data-src="/assets/3.webp">
+                    <img src="/assets/3.webp" alt="Expo photo 3" class="w-full h-full object-cover block" loading="lazy" />
+                </button>
+
+                <button class="gallery-item hidden lg:block overflow-hidden rounded-2xl shadow-md hover:shadow-xl hover:brightness-110 transition-all duration-300 focus:outline-none" data-src="/assets/4.webp">
+                    <img src="/assets/4.webp" alt="Expo photo 4" class="w-full h-full object-cover block" loading="lazy" />
+                </button>
+
+                <button class="gallery-item hidden lg:block overflow-hidden rounded-2xl shadow-md hover:shadow-xl hover:brightness-110 transition-all duration-300 focus:outline-none" data-src="/assets/5.webp">
+                    <img src="/assets/5.webp" alt="Expo photo 5" class="w-full h-full object-cover block" loading="lazy" />
+                </button>
+
+                <button class="gallery-item hidden lg:block overflow-hidden rounded-2xl shadow-md hover:shadow-xl hover:brightness-110 transition-all duration-300 focus:outline-none" data-src="/assets/6.webp">
+                    <img src="/assets/6.webp" alt="Expo photo 6" class="w-full h-full object-cover block" loading="lazy" />
+                </button>
+
+                <button class="gallery-item hidden lg:block overflow-hidden rounded-2xl shadow-md hover:shadow-xl hover:brightness-110 transition-all duration-300 focus:outline-none" data-src="/assets/7.webp">
+                    <img src="/assets/7.webp" alt="Expo photo 7" class="w-full h-full object-cover block" loading="lazy" />
+                </button>
+
+                <button class="gallery-item hidden lg:col-span-2 lg:block overflow-hidden rounded-2xl shadow-md hover:shadow-xl hover:brightness-110 transition-all duration-300 focus:outline-none" data-src="/assets/8.webp">
+                    <img src="/assets/8.webp" alt="Expo photo 8" class="w-full h-full object-cover block" loading="lazy" />
+                </button>
             </div>
         </div>
     </section>
 
-    <section class="section-padding">
+   
+    <!-- WHATSAPP COMMUNITY SECTION -->
+    <section class="section-padding" style="background-color: var(--white); padding-top: 8rem;">
         <div class="container">
             <div class="section-header gsap-fade">
-                <h2>The Reality vs. The Smart Alternative</h2>
-                <p>Understanding the data before risking your financial future.</p>
+                <h2>Stay One Step Ahead in Your MBBS Journey</h2>
+                <p style="max-width: 800px; margin: 0 auto; line-height: 1.6;">Whether you're planning to study MBBS abroad or exploring your options after NEET, staying informed can make all the difference. Join the official KlickEdu WhatsApp Community to receive timely updates, expert guidance, and important announcements—all in one place.</p>
             </div>
 
-            <div class="comparison-grid">
-                <div class="glass-card gsap-card">
-                    <h3 style="margin-bottom: 1.5rem; color: var(--primary); font-size: 1.5rem;">High-Cost Private Ecosystem</h3>
-                    <div class="table-row">
-                        <strong>Total Budget</strong>
-                        <span style="color: #ef4444; font-weight: 700;">₹70L - ₹1.5 Crore</span>
-                    </div>
-                    <div class="table-row">
-                        <strong>Competition</strong>
-                        <span>Highly Competitive</span>
-                    </div>
-                    <div class="table-row">
-                        <strong>Availability</strong>
-                        <span>Restricted by Budget</span>
-                    </div>
-                    <div class="table-row">
-                        <strong>Hidden Fees</strong>
-                        <span>Frequent Capitation</span>
-                    </div>
-                </div>
+            <div class="glass-card gsap-fade" style="max-width: 900px; margin: 0 auto; background: var(--bg-light);">
+                <h3 style="color: var(--primary); font-size: 1.5rem; text-align: center; margin-bottom: 2rem;">Inside the Community, You'll Get</h3>
+                
+                <ul style="list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 2.5rem; padding: 0 1rem;">
+                    <li style="display: flex; align-items: center; gap: 1rem; font-weight: 600; color: var(--text-main);">
+                        <i class="fa-solid fa-graduation-cap" style="font-size: 1.25rem; color: var(--accent-pink); width: 30px; text-align: center;"></i> FREE LIVE Webinar Reminders
+                    </li>
+                    <li style="display: flex; align-items: center; gap: 1rem; font-weight: 600; color: var(--text-main);">
+                        <i class="fa-regular fa-compass" style="font-size: 1.25rem; color: var(--accent-pink); width: 30px; text-align: center;"></i> MBBS Abroad Admission Updates
+                    </li>
+                    <li style="display: flex; align-items: center; gap: 1rem; font-weight: 600; color: var(--text-main);">
+                        <i class="fa-regular fa-hospital" style="font-size: 1.25rem; color: var(--accent-pink); width: 30px; text-align: center;"></i> Trusted University Opportunities
+                    </li>
+                    <li style="display: flex; align-items: center; gap: 1rem; font-weight: 600; color: var(--text-main);">
+                        <i class="fa-regular fa-file-lines" style="font-size: 1.25rem; color: var(--accent-pink); width: 30px; text-align: center;"></i> Visa & Admission Guidance
+                    </li>
+                    <li style="display: flex; align-items: center; gap: 1rem; font-weight: 600; color: var(--text-main);">
+                        <i class="fa-solid fa-stethoscope" style="font-size: 1.25rem; color: var(--accent-pink); width: 30px; text-align: center;"></i> National Exit Test (NExT) Updates
+                    </li>
+                    <li style="display: flex; align-items: center; gap: 1rem; font-weight: 600; color: var(--text-main);">
+                        <i class="fa-regular fa-bell" style="font-size: 1.25rem; color: var(--accent-pink); width: 30px; text-align: center;"></i> Important Announcements & Key Deadlines
+                    </li>
+                </ul>
 
-                <div class="glass-card gsap-card" style="border: 2px solid transparent; background-image: linear-gradient(var(--glass-bg), var(--glass-bg)), var(--gradient-main); background-origin: border-box; background-clip: padding-box, border-box;">
-                    <h3 style="margin-bottom: 1.5rem; color: var(--accent); font-size: 1.5rem;">Affordable Global MBBS</h3>
-                    <div class="table-row">
-                        <strong>Total Budget</strong>
-                        <span style="color: #10b981; font-weight: 700;">₹25L - ₹45L</span>
-                    </div>
-                    <div class="table-row">
-                        <strong>Global Recognition</strong>
-                        <span>100% NMC / WHO Approved</span>
-                    </div>
-                    <div class="table-row">
-                        <strong>Comfort</strong>
-                        <span>Safe Hostels & Indian Mess</span>
-                    </div>
-                    <div class="table-row">
-                        <strong>Support</strong>
-                        <span>End-to-End Visa & Loan Help</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div style="text-align: center; margin-top: 3rem;">
-                <button class="btn trigger-modal">See If You Qualify For Better Options</button>
-            </div>
-        </div>
-    </section>
-
-    <section class="section-padding schedule-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Next Live Session Starts In</h2>
-                <p>We host sessions every Sunday. Pick a slot that fits your schedule.</p>
                 <div style="text-align: center;">
-                    <span class="schedule-time-badge"><i class="fa-solid fa-clock"></i> Sunday, 7:00 PM - 8:00 PM</span>
+                    <a href="https://chat.whatsapp.com/J9aKTQXNk3r8FtfombdDmT?s=cl&p=i&ilr=0" target="_blank" class="btn" style="background: #25D366; box-shadow: 0 10px 15px -3px rgba(37, 211, 102, 0.35); text-decoration: none; display: inline-flex; align-items: center; gap: 0.75rem;">
+                        <i class="fa-brands fa-whatsapp" style="font-size: 1.4rem;"></i>  Join the Official WhatsApp Community
+                    </a>
                 </div>
-            </div>
-
-            <div class="timer-container">
-                <div class="time-box">
-                    <span id="days">00</span>
-                    <label>Days</label>
-                </div>
-                <div class="time-box">
-                    <span id="hours">00</span>
-                    <label>Hours</label>
-                </div>
-                <div class="time-box">
-                    <span id="minutes">00</span>
-                    <label>Minutes</label>
-                </div>
-                <div class="time-box">
-                    <span id="seconds">00</span>
-                    <label>Seconds</label>
-                </div>
-            </div>
-
-            <div style="text-align: center; margin-top: 3rem;">
-                <button class="btn trigger-modal" style="background: var(--white); color: var(--primary);">Claim Free Ticket + Bonuses</button>
             </div>
         </div>
     </section>
-
 
     <section class="section-padding">
         <div class="container">
@@ -695,9 +490,8 @@
     <footer style="background: var(--bg-light); color: var(--text-main); padding: 42px 0 2rem 0; border-top: 1px solid rgba(0,0,0,0.06);">
         <div class="container">
             <div class="footer-grid">
-
                 <div class="footer-brand">
-                    <img class="footer-logo" style="height: 100px !important; margin-bottom:0px;" src="Assets/logo2.png" alt="Klick Edu Logo">
+                    <img class="footer-logo" style="height: 100px !important; margin-bottom:0px;" src="/assets/logo2.png" alt="Klick Edu Logo">
                     <p class="footer-tagline">Student empowering platform</p>
                     <p class="footer-tagline">Custom-made education solutions for the New Generation</p>
                     <div class="footer-contact">
@@ -817,18 +611,12 @@
 
         // Initial Load Animation (Hero)
         const tl = gsap.timeline();
-        tl.from(".nav-content", { y: -20, opacity: 0, duration: 0.8, ease: "power3.out" })
-          .from(".gsap-hero", { y: 30, opacity: 0, duration: 0.8, stagger: 0.2, ease: "power3.out" }, "-=0.4");
+        tl.from(".nav-content", { y: -20, opacity: 0, duration: 0.8, ease: "power3.out" });
 
         // Scroll Animations (Glassmorphism Cards)
         gsap.from(".gsap-fade", {
             scrollTrigger: { trigger: ".section-padding", start: "top 80%" },
             y: 30, opacity: 0, duration: 0.8
-        });
-
-        gsap.from(".gsap-card", {
-            scrollTrigger: { trigger: ".comparison-grid", start: "top 80%" },
-            y: 50, opacity: 0, duration: 0.8, stagger: 0.2, ease: "back.out(1.2)"
         });
 
         // FAQ Accordion Logic
@@ -843,7 +631,6 @@
                     content.style.maxHeight = null;
                     icon.textContent = '+';
                 } else {
-                    // Close others
                     document.querySelectorAll('.faq-content').forEach(c => c.style.maxHeight = null);
                     document.querySelectorAll('.faq-btn span').forEach(i => i.textContent = '+');
                     
@@ -862,33 +649,32 @@
         triggerBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 modal.style.display = 'flex';
-                // GSAP Modal Entry
                 gsap.to(modal, { opacity: 1, duration: 0.3 });
                 gsap.to(modalContent, { scale: 1, duration: 0.4, ease: "back.out(1.5)" });
             });
         });
+
+        const closeModalFunc = () => {
+            gsap.to(modalContent, { scale: 0.95, duration: 0.3 });
+            gsap.to(modal, { opacity: 0, duration: 0.3, onComplete: () => modal.style.display = 'none' });
+        };
 
         closeBtn.addEventListener('click', closeModalFunc);
         modal.addEventListener('click', (e) => {
             if(e.target === modal) closeModalFunc();
         });
 
-
         // Form Submit & App Script Integration
         document.getElementById('leadForm').addEventListener('submit', async (e) => {
             e.preventDefault();
             
-            // PASTE YOUR GOOGLE APPS SCRIPT URL HERE
             const scriptURL = 'https://script.google.com/macros/s/AKfycbz-2WrRH2GRuTakrrgvUzad61vrlptE1BKASKxVmOWpvHSfbDNt1alRP3BHsufBBTi-MQ/exec';
-            
             const submitBtn = e.target.querySelector('button[type="submit"]');
             const originalText = submitBtn.innerText;
             
-            // Change button text to show loading state
             submitBtn.innerText = 'Submitting...';
             submitBtn.disabled = true;
 
-            // Gather form data based on the IDs we added
             const formData = {
                 name: document.getElementById('leadName').value,
                 whatsapp: document.getElementById('leadPhone').value,
@@ -900,16 +686,12 @@
             try {
                 await fetch(scriptURL, {
                     method: 'POST',
-                    mode: 'no-cors', // Important: bypasses CORS blocks for Google Scripts
-                    headers: {
-                        'Content-Type': 'text/plain;charset=utf-8', // avoids no-cors header restrictions; GAS still parses the raw JSON body
-                    },
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
                     body: JSON.stringify(formData)
                 });
 
-                // Success: show it on the button itself, then close
                 submitBtn.innerText = 'Submitted ✓';
-
                 setTimeout(() => {
                     e.target.reset();
                     closeModalFunc();
@@ -925,22 +707,15 @@
             }
         });
 
-        function closeModalFunc() {
-            gsap.to(modalContent, { scale: 0.95, duration: 0.3 });
-            gsap.to(modal, { opacity: 0, duration: 0.3, onComplete: () => modal.style.display = 'none' });
-        }
-
-        // Countdown Timer Logic
-        // Set to next Sunday at 7 PM
+        // FIXED Countdown Timer Logic - Added check to prevent JS crash since HTML timer is missing
         function getNextSunday() {
             let d = new Date();
             d.setDate(d.getDate() + (7 - d.getDay()) % 7);
-            d.setHours(19, 0, 0, 0); // 7 PM
+            d.setHours(19, 0, 0, 0); 
             return d.getTime();
         }
 
         const countDownDate = getNextSunday();
-
         const x = setInterval(function() {
             const now = new Date().getTime();
             const distance = countDownDate - now;
@@ -950,14 +725,21 @@
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            document.getElementById("days").innerHTML = days < 10 ? '0' + days : days;
-            document.getElementById("hours").innerHTML = hours < 10 ? '0' + hours : hours;
-            document.getElementById("minutes").innerHTML = minutes < 10 ? '0' + minutes : minutes;
-            document.getElementById("seconds").innerHTML = seconds < 10 ? '0' + seconds : seconds;
+            // Added Safety Checks here so it doesn't crash if the timer HTML is removed from the page
+            const daysEl = document.getElementById("days");
+            if (daysEl) {
+                daysEl.innerHTML = days < 10 ? '0' + days : days;
+                document.getElementById("hours").innerHTML = hours < 10 ? '0' + hours : hours;
+                document.getElementById("minutes").innerHTML = minutes < 10 ? '0' + minutes : minutes;
+                document.getElementById("seconds").innerHTML = seconds < 10 ? '0' + seconds : seconds;
 
-            if (distance < 0) {
-                clearInterval(x);
-                document.querySelector(".timer-container").innerHTML = "<h2>Session is Live!</h2>";
+                if (distance < 0) {
+                    clearInterval(x);
+                    document.querySelector(".timer-container").innerHTML = "<h2>Session is Live!</h2>";
+                }
+            } else {
+                // If timer elements aren't found in HTML, stop trying to run the timer loop
+                clearInterval(x); 
             }
         }, 1000);
     </script>
